@@ -1,17 +1,42 @@
-import React from 'react';
-import renderHydrogen from '@shopify/hydrogen/entry-server';
-import {Router, FileRoutes, ShopifyProvider} from '@shopify/hydrogen';
-import {Suspense} from 'react';
+import renderHydrogen from "@shopify/hydrogen/entry-server";
+import {
+  Router,
+  FileRoutes,
+  ShopifyProvider,
+  CartProvider,
+  Head
+} from "@shopify/hydrogen";
 
-function App() {
+
+
+import { Suspense } from "react";
+
+
+
+function App({ routes }) {
   return (
+<>    
+
+
+<Head>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400,2&display=swap" rel="stylesheet" />
+
+</Head>
+
+
     <Suspense fallback={null}>
       <ShopifyProvider>
-        <Router>
-          <FileRoutes />
-        </Router>
+          <CartProvider>
+            <Router>
+              <FileRoutes routes={routes} />
+            </Router>
+          </CartProvider>
       </ShopifyProvider>
     </Suspense>
+
+</>
+
+
   );
 }
 

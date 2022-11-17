@@ -1,0 +1,186 @@
+.check:nth-child(3n+1){
+  /* background-color: red; */
+
+  border-top-color: black ;
+  border-left-color: black;
+  border-bottom-color: black;
+  border-right-color:transparent;
+
+
+  border-width: 2px ;
+
+
+}
+
+.check:nth-child(3n+2){
+  /* background-color: purple; */
+
+  border-color: black ;
+  border-width: 2px;
+
+
+}
+
+.check:nth-child(3n+3){
+  /* background-color: green; */
+
+  border-top-color: black ;
+  border-right-color: black;
+  border-bottom-color: black;
+  border-left-color:transparent;
+  border-width: 2px ;
+}
+
+.check:nth-child(6n+4), .check:nth-child(6n+5), .check:nth-child(6n+6){
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.check:nth-last-child(-n+3){
+  border-bottom-color: black;
+
+}
+
+
+
+
+
+
+
+.avienBro:first-child{
+
+  
+
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+
+}
+
+.avienBro:not(:first-child):not(:last-child){
+
+
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+}
+
+.avienBro:last-child{
+  
+  border: 1px solid #cccccc;
+
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+
+
+  /* border-bottom: 2px solid red;
+  border-left: 2px solid red;
+  border-right: 2px solid red; */
+
+
+  color: #619415;
+
+  
+}
+
+
+
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+}
+
+
+
+.tablinks.active{
+
+  font-weight: 700;
+}
+
+
+.loader {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #FFF #FFF transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #FF3D00 #FF3D00;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 104px;
+  height: 104px;
+  border-color: #FFF #FFF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+    
+
+
+.paginationOutsideActive div{
+background-color: black;
+}
+
+
+.productLikeButton{
+  background-color: red;
+}
+
+
+.gradientBackground{
+  
+  
+  /* background-color: linear-gradient(150deg, red 0%, pink 49%, purple 100%); */
+
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+
+  background-image: url(/removed.png),-moz-linear-gradient(-45deg,  #ebebeb 30%, #ececec 51%, #f1f1f1 70%); /* FF3.6-15 */
+background-image: url(/removed.png),-webkit-linear-gradient(-45deg, #ebebeb 30%,#ececec 51%,#f1f1f1 70%); /* Chrome10-25,Safari5.1-6 */
+background-image: url(/removed.png),linear-gradient(135deg, #ebebeb 30%,#ececec 51%,#f1f1f1 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+
+
+}
