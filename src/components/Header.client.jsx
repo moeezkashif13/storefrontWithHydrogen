@@ -1,6 +1,6 @@
 import { useUrl, Link, useCart } from "@shopify/hydrogen";
-import { Drawer, useDrawer } from "./Drawer.client";
-import { CartDetails } from "./CartDetails.client";
+import { Drawer, useDrawer } from "./Cart/Drawer.client";
+import { CartDetails, } from "./Cart/CartDetails.client";
 
 export default function Header({ shop }) {
   const { pathname } = useUrl();

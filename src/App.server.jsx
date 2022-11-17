@@ -24,7 +24,7 @@ function App({ routes }) {
 </Head>
 
 
-    <Suspense fallback={null}>
+<Suspense fallback={null}>
       <ShopifyProvider>
           <CartProvider>
             <Router>
@@ -33,6 +33,7 @@ function App({ routes }) {
           </CartProvider>
       </ShopifyProvider>
     </Suspense>
+
 
 </>
 

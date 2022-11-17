@@ -51,7 +51,9 @@ function Drawer({ open, onClose, children }) {
                       <IconClose aria-label="Close panel" />
                     </button>
                   </header>
+                  
                   {children}
+                  
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -62,7 +64,7 @@ function Drawer({ open, onClose, children }) {
   );
 }
 
-/* Use for associating `aria-labelledby` with the title */
+/* Use for associating arialabelledby with the title*/
 Drawer.Title = Dialog.Title;
 
 export { Drawer };

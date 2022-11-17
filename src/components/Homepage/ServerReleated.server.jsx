@@ -4,6 +4,7 @@ import { useShopQuery, CacheLong, gql } from "@shopify/hydrogen";
 import ExploreCategs from "./ExploreCategs.client";
 import FlashSale from "./FlashSale.client";
 import HeroSect from "./HeroSect.client";
+import Footer from "./Footer.client";
 
 
 export default function ServerReleated(){
@@ -37,8 +38,8 @@ export default function ServerReleated(){
 
 <FlashSale flashSaleProducts={CheckProducts} />
 
-<div>AGAIN</div>
 
+{/* <Footer/> */}
 
 
         </div>

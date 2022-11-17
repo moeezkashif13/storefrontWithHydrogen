@@ -31,7 +31,7 @@ export function Layout({ children }) {
             Skip to content
           </a>
         </div>
-        {/* <Header shop={shop} /> */}
+        <Header shop={shop} />
 
         <main role="main" id="mainContent" className="flex-grow">
           <Suspense fallback={null}>{children}</Suspense>

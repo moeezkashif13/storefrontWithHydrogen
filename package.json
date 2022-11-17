@@ -10,10 +10,10 @@
   "scripts": {
     "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build",
-
     "preview": "shopify hydrogen preview"
   },
   "devDependencies": {
+    "@netlify/hydrogen-platform": "^1.1.2",
     "@shopify/cli": "3.22.1",
     "@shopify/cli-hydrogen": "3.22.1",
     "@tailwindcss/typography": "^0.5.8",
@@ -23,6 +23,7 @@
     "vite": "^2.9.13"
   },
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.2.0",
     "@headlessui/react": "^1.7.4",
     "@shopify/hydrogen": "^1.6.1",
     "@splidejs/react-splide": "^0.7.12",

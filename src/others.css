@@ -38,12 +38,23 @@
 
 .check:nth-last-child(-n+3){
   border-bottom-color: black;
+}
 
+.check:last-child{
+  
+  border-right-color: black;
 }
 
 
 
+.avienBro{
+  transition: all 0.7s;
+}
 
+.avienBro:hover{
+  background-color: black;
+  color: white;
+}
 
 
 
@@ -184,3 +195,4 @@ background-image: url(/removed.png),linear-gradient(135deg, #ebebeb 30%,#ececec 
 
 
 }
+

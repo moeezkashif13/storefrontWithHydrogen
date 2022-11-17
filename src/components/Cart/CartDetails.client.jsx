@@ -11,7 +11,7 @@ import {
     Money,
   } from "@shopify/hydrogen";
   
-  export function CartDetails({ onClose }) {
+  export const CartDetails = ({ onClose })=> {
     const { lines } = useCart();
   
     if (lines.length === 0) {
@@ -48,6 +48,7 @@ import {
     );
   }
   
+
   export function CartEmpty({ onClose }) {
     return (
       <div className="flex flex-col space-y-7 justify-center items-center md:py-8 md:px-12 px-4 py-6 h-screen">
@@ -63,7 +64,7 @@ import {
       </div>
     );
   }
-  
+
   function CartCheckoutActions() {
     const { checkoutUrl } = useCart();
     return (
@@ -81,7 +82,7 @@ import {
       </>
     );
   }
-  
+
   function OrderSummary() {
     const { cost } = useCart();
     return (
@@ -107,7 +108,7 @@ import {
       </>
     );
   }
-  
+
   export function CartLineItem() {
     const { linesRemove } = useCart();
     const { id: lineId, quantity, merchandise } = useCartLine();
@@ -174,6 +175,7 @@ import {
     );
   }
   
+
   function CartLineQuantityAdjust({ lineId, quantity }) {
     return (
       <>

@@ -9,7 +9,8 @@ import {
   import { Suspense } from "react";
   
   import { Layout } from "../../components/Layout.server";
-  import ProductDetails from "../../components/ProductDetails.client";
+
+  
 import ProductPage from "../../components/ProductPage/ProductPage.client";
   
   export default function Product({ params }) {
@@ -36,7 +37,7 @@ import ProductPage from "../../components/ProductPage/ProductPage.client";
         <Suspense>
           <Seo type="product" data={product} />
         </Suspense>
-        {/* <ProductDetails product={product} /> */}
+        
 
 <ProductPage productData={product} />
 

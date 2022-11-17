@@ -5,24 +5,22 @@ import {BsStarHalf,BsCart,BsStarFill,BsStar} from 'react-icons/bs'
 
 import { Splide, SplideSlide,SplideTrack } from '@splidejs/react-splide';
 
-
-// import { addToCart, modifyProductFromCart, selectItems } from '../../slices/orderSlice';
-// import {useDispatch,useSelector} from 'react-redux'
-
-
-// import axiosClient from '../../utils/axiosDefaults';
-// import { calculateAverage, extractDataFromStrapiResponse } from '../../utils';
-
-// import QueryString from 'qs'
-
-// import { Rate } from 'antd';
+import {Link} from '@shopify/hydrogen'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import { v4 as uuidv4 } from 'uuid';
-// const qs = require('qs');
 
+import {
+    ProductOptionsProvider,
+    MediaFile,
+    useProductOptions,
+    ProductPrice,
+    BuyNowButton,
+    AddToCartButton,
+  } from "@shopify/hydrogen";
+
+  
 
 const applyReactToast = (message)=>{
     const customId = Math.floor(Math.random()*1000);
@@ -30,7 +28,10 @@ const applyReactToast = (message)=>{
     toast(message,{pauseOnHover:false,type:'success',autoClose:2000,toastId:customId})
 }
 
-const SelectSize = (event)=>{
+const SelectSize = (event,setSelectedSize)=>{
+
+console.log('selectedddd');
+
 
 
     const selectedSizeDiv =  event.target
@@ -60,8 +61,6 @@ const SelectColor = (event,color)=>{
 
 
 
-
-
     const selectedSizeDiv =  event.target
     const allSizes = document.querySelectorAll('.colors');
 
@@ -82,7 +81,69 @@ const SelectColor = (event,color)=>{
 
 }
 
+const selectVariantHandler = ()=>{
 
+    applyReactToast('Variant Selected')
+
+}
+
+const handleAddToCart = ()=>{
+    applyReactToast('Product added to cart')
+
+}
+
+function PurchaseMarkup() {
+    const { selectedVariant } = useProductOptions();
+    const isOutOfStock = !selectedVariant?.availableForSale || false;
+  
+    return (
+      <>
+
+{/* <button onClick={handleAddToCart} style={{transition:'all 0.4s linear'}} 
+
+
+
+
+className="w-full  bg-black text-white py-4 font-bold rounded-lg
+
+    disabled:bg-slate-300
+
+
+">Add to Cart</button> */}
+
+
+        <AddToCartButton
+        style={{backgroundColor:'red'}}
+        className=' rounded-lg
+
+        disabled:bg-slate-300'
+
+          type="button"
+          variantId={selectedVariant.id}
+          quantity={1}
+          accessibleAddingToCartLabel="Adding item to your cart"
+disabled={isOutOfStock}          
+
+        >
+          <span className="bg-black text-white inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full">
+            {isOutOfStock ? "Sold out" : "Add to cartttt"}
+          </span>
+        </AddToCartButton>
+        {isOutOfStock ? (
+          <span className="text-black text-center py-3 px-6 border rounded-sm leading-none ">
+            Available in 2-3 weeks
+          </span>
+        ) : (
+          <BuyNowButton variantId={selectedVariant.id}>
+            <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border w-full">
+              Buy it now
+            </span>
+          </BuyNowButton>
+        )}
+      </>
+    );
+  }
+  
 
 export default function ProductPage({productData}){
 
@@ -101,8 +162,6 @@ const getSizesArray = options.filter(eachOption=>{
 
 const [selectedSize,setSelectedSize] = useState(null); 
 
-const [selectedColor,setSelectedColor] = useState(null); 
-
 
 const [disabledAddToCart,setDisabledAddToCart] = useState(false);
 
@@ -111,7 +170,11 @@ const [showMiniCart,setShowMiniCart] = useState(false)
 const secondDateObj = new Date();
 
 
+
+
+
     return(
+<ProductOptionsProvider data={productData}>
 
         <div className="bg-[#fafaf9] relative">
 
@@ -400,10 +463,12 @@ setProductCount(oldVal=>oldVal-1);
 
 
 
+<PurchaseMarkup/>
 
-<button  style={{transition:'all 0.4s linear'}} 
 
-    disabled={(!selectedSize||!selectedColor || disabledAddToCart)&&true}
+{/* <button onClick={handleAddToCart} style={{transition:'all 0.4s linear'}} 
+
+    disabled={(!selectedSize || disabledAddToCart)&&true}
 
 
 
@@ -415,7 +480,7 @@ className="w-full  bg-black text-white py-4 font-bold rounded-lg
     disabled:bg-slate-300
 
 
-">Add to Cart</button>
+">Add to Cart</button> */}
 
 
 <button onClick={()=>{
@@ -434,11 +499,11 @@ className="w-full  bg-black text-white py-4 font-bold rounded-lg
 <button style={{transition:'all 0.4s linear'}} 
 
 
-    disabled={(!selectedSize||!selectedColor)&&true}
+    disabled={!selectedSize&&true}
 
 
 
-className={`w-full  ${(!selectedSize||!selectedColor)?'py-4':'py-0'} flex justify-center items-center bg-black text-white  font-bold rounded-lg
+className={`w-full  ${!selectedSize?'py-4':'py-0'} flex justify-center items-center bg-black text-white  font-bold rounded-lg
 
 
    disabled:bg-slate-300
@@ -448,11 +513,13 @@ className={`w-full  ${(!selectedSize||!selectedColor)?'py-4':'py-0'} flex justif
 `}>
 
 
-{(!selectedSize||!selectedColor)?<p >Go to Checkout</p>:<Link  href='/checkout'>
+{!selectedSize?<p >Go to Checkout</p>:<Link className='py-4' to='/checkout'>
     
-    <a className='w-full py-4 '>Go to Checkout</a>
+Go to Checkout
 
-    </Link>}
+    </Link>
+    
+    }
 
 
 
@@ -519,7 +586,7 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 
     // return  <div key={index} onClick={SelectSize} style={{transition:'all 0.3s linear '}} className=' check  w-1/3 py-3 text-center  cursor-pointer'>{eachSize}</div>
 
-    return  <div key={index} onClick={SelectSize} style={{transition:'all 0.3s linear '}} className=' check  w-1/3 py-3 text-center  cursor-pointer'>{eachSize}</div>
+    return  <div key={index} onClick={(event)=>SelectSize(event,setSelectedSize)} style={{transition:'all 0.3s linear '}} className=' check  w-1/3 py-3 text-center  cursor-pointer'>{eachSize}</div>
 
 
 })}
@@ -545,7 +612,7 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 const {priceV2,title} = elem;
 
 
-return         <div key={index} className="cursor-pointer px-3 py-5 avienBro     w-full flex">
+return         <div onClick={selectVariantHandler} key={index} className="cursor-pointer px-3 py-5 avienBro     w-full flex">
 
 <p className='font-bold'>${priceV2.amount}</p>
 
@@ -700,6 +767,8 @@ var daydiff = diff / (1000 * 60 * 60 * 24);
 
 
         </div>
+
+        </ProductOptionsProvider>
 
         )
 

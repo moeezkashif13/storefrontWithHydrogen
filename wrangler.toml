@@ -1,0 +1,14 @@
+account_id = "99853dedcdd1fa9b8341bd5f2b14fc8a"
+type="javascript"
+compatibility_date = "2022-01-28"
+compatibility_flags = ["streams_enable_constructors"]
+main = "dist/worker/index.js"
+name = "hydrogen_app"
+route = ""
+workers_dev = true
+[site]
+bucket = "dist/client"
+entry-point = "dist/worker"
+[build]
+upload.format = "service-worker"
+command = "npm run build"
