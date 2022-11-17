@@ -11,29 +11,6 @@ const checkArr = ['https://richardsclothing.ca/wp-content/uploads/2018/11/fi6-e1
 export default function HeroSect({fetchedProducts}){
 
 
-    useEffect(()=>{
-
-fetch('https://sahhmallllc.myshopify.com/admin/access_tokens/delegate.json',{
-    method:'POST',
-    headers:{
-        'X-SHOPIFY-ACCESS-TOKEN':'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'
-    },
-    body:{
-        "delegate_access_scope": [
-            "write_orders"
-          ],
-          "expires_in": 3600
-        
-    }
-}).then(resp=>{
-    resp.json().then(check=>{
-        console.log(check);
-    })
-})
-
-    },[])
-
-
     // Shuffle array
 const shuffled = fetchedProducts.nodes.sort(() => 0.5 - Math.random());
 
