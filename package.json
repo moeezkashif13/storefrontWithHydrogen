@@ -11,6 +11,9 @@
     "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build",
     "preview": "shopify hydrogen preview"
+
+    
+
   },
   "devDependencies": {
     "@netlify/hydrogen-platform": "^1.1.2",
