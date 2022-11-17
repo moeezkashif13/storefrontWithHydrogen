@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
     ProductOptionsProvider,
     MediaFile,
+
     useProductOptions,
     ProductPrice,
     BuyNowButton,
@@ -94,6 +95,7 @@ const handleAddToCart = ()=>{
 
 function PurchaseMarkup() {
     const { selectedVariant } = useProductOptions();
+    
     const isOutOfStock = !selectedVariant?.availableForSale || false;
   
     return (
@@ -111,15 +113,12 @@ className="w-full  bg-black text-white py-4 font-bold rounded-lg
 
 ">Add to Cart</button> */}
 
+<div className='bg-red-500 py-8'>
 
         <AddToCartButton
-        style={{backgroundColor:'red'}}
-        className=' rounded-lg
-
-        disabled:bg-slate-300'
-
           type="button"
-          variantId={selectedVariant.id}
+          className='w-full py-8'
+          variantId={selectedVariant?.id}
           quantity={1}
           accessibleAddingToCartLabel="Adding item to your cart"
 disabled={isOutOfStock}          
@@ -129,12 +128,13 @@ disabled={isOutOfStock}
             {isOutOfStock ? "Sold out" : "Add to cartttt"}
           </span>
         </AddToCartButton>
+        </div>
         {isOutOfStock ? (
           <span className="text-black text-center py-3 px-6 border rounded-sm leading-none ">
             Available in 2-3 weeks
           </span>
         ) : (
-          <BuyNowButton variantId={selectedVariant.id}>
+          <BuyNowButton variantId={selectedVariant?.id}>
             <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border w-full">
               Buy it now
             </span>
@@ -143,18 +143,114 @@ disabled={isOutOfStock}
       </>
     );
   }
+
+
+  function OptionRadio({ values, name }) {
+    const { selectedOptions, setSelectedOption } = useProductOptions();
+  
+    return (
+      <>
+        {values.map((value) => {
+          const checked = selectedOptions[name] === value;
+          const id = `option-${name}-${value}`;
+  
+          return (
+            <label key={id} htmlFor={id}>
+              <input
+                className="sr-only"
+                type="radio"
+                id={id}
+                name={`option[${name}]`}
+                value={value}
+                checked={checked}
+                onChange={() => setSelectedOption(name, value)}
+              />
+              <div
+              onClick={()=>applyReactToast(`${name} Selected`)}
+
+className={`transition-all duration-200 ${
+                  checked ? "border-gray-500" : "border-neutral-50"
+                }   check  px-5 py-3 text-center  cursor-pointer bg-red-500  `}
+              >
+                {value}
+              </div>
+            </label>
+          );
+        })}
+      </>
+    );
+  }
+  
+
+  function ProductForm({ product }) {
+    const { options, selectedVariant } = useProductOptions();
+  
+    return (
+      <form >
+        {
+          <div className="flex flex-wrap bg-pink-500 gap-6  text-md font-semibold">
+
+{/* <div className='flex flex-wrap  text-md font-semibold sizeDivContainer  '>
+    
+{getSizesArray[0].values.map((eachSize,index)=>{
+
+    // return  <div key={index} onClick={SelectSize} style={{transition:'all 0.3s linear '}} className=' check  w-1/3 py-3 text-center  cursor-pointer'>{eachSize}</div>
+
+    return  <div key={index} onClick={(event)=>SelectSize(event,setSelectedSize)} style={{transition:'all 0.3s linear '}} className=' check  w-1/3 py-3 text-center  cursor-pointer'>{eachSize}</div>
+
+
+})}
+
+
+</div> */}
+
+
+            {options.map(({ name, values }) => {
+              if (values.length === 1) {
+                return null;
+              }
+              return (
+                <div
+                  key={name} 
+               
+                  >
+<p className='text-xl mb-2'>{name}</p>
+                  <div className="flex flex-wrap gap-y-4 gap-x-4">
+                    <OptionRadio name={name} values={values} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        }
+        <div>
+          <ProductPrice
+            className="text-gray-500 line-through text-lg font-semibold"
+            priceType="compareAt"
+            variantId={selectedVariant.id}
+            data={product}
+          />
+          <ProductPrice
+            className="text-gray-900 text-lg font-semibold"
+            variantId={selectedVariant.id}
+            data={product}
+          />
+        </div>
+
+
+      </form>
+    );
+  }
+  
   
 
 export default function ProductPage({productData}){
 
-    console.log(productData);
 const {vendor,title,options,variants,media} = productData;
-
 
 const getSizesArray = options.filter(eachOption=>{
     return eachOption.name == 'Size'
 });
-
 
 
 
@@ -176,7 +272,20 @@ const secondDateObj = new Date();
     return(
 <ProductOptionsProvider data={productData}>
 
+
+
         <div className="bg-[#fafaf9] relative">
+
+
+
+{/* HEREEEEEE */}
+
+
+
+{/* HEREEEEE */}
+
+
+
 
             
         <ToastContainer />
@@ -580,7 +689,7 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 
 
     
-<div className='flex flex-wrap  text-md font-semibold sizeDivContainer  '>
+{/* <div className='flex flex-wrap  text-md font-semibold sizeDivContainer  '>
     
 {getSizesArray[0].values.map((eachSize,index)=>{
 
@@ -592,7 +701,18 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 })}
 
 
+</div> */}
+
+
+<div className='bg-red-500'>
+
+<ProductForm product={productData} />
+
+
+
+
 </div>
+
 
 
 {/* {ProductColor.length>0&&
@@ -773,3 +893,5 @@ var daydiff = diff / (1000 * 60 * 60 * 24);
         )
 
 }
+
+
