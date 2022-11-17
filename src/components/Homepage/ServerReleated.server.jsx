@@ -1,6 +1,6 @@
 import NewArrivals from "./NewArrivals.client";
 
-import { useShopQuery, CacheLong, gql, useUrl, Link } from "@shopify/hydrogen";
+import { useShopQuery, CacheLong, gql } from "@shopify/hydrogen";
 import ExploreCategs from "./ExploreCategs.client";
 import FlashSale from "./FlashSale.client";
 import HeroSect from "./HeroSect.client";
