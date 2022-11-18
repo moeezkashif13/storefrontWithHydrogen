@@ -82,9 +82,10 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 
 
     return (
-        <div className=" h-[95vh] relative">
+        <div className=" h-[95vh] relative ">
 
-        <div className='bg-[#112224] w-[95%] z-10  font-semibold py-3.5 px-7 top-6 absolute rounded-3xl text-white flex items-center justify-between  ' style={{left:'50%',transform:'translateX(-50%)'}}>
+
+        <div className='SMMax:hidden  bg-[#112224] w-[95%] z-10  font-semibold py-3.5 px-7 top-6 absolute rounded-3xl text-white flex items-center justify-between  ' style={{left:'50%',transform:'translateX(-50%)'}}>
 
 
 <p className='font-bold text-lg'>LAUTARO</p>
@@ -162,13 +163,13 @@ style={{backgroundImage:`url(${featuredImage.url})`}}
     
     
 
-    <div className='absolute font-semibold right-8 bottom-10  w-[25%] flex flex-col items-end justify-end'>
+    <div className='absolute font-semibold right-8 bottom-10 SMMax:px-5 SMMax:bottom-16  w-[25%] SMMax:w-full SMMax:right-0 flex flex-col items-end justify-end text-white'>
 
-<h1 className='uppercase text-right text-2xl text-[#aeaaa2] font-medium'>{title}</h1>
+<h1 className='uppercase text-right text-2xl SMMax:text-lg  font-medium'>{title}</h1>
 
-<p className='mt-4 mb-7 text-[#888a85]  text-xl' >$115.50</p>
+<p className='mt-4 mb-7   text-xl' >$115.50</p>
 
-<Link to={`/product/${handle}`} className='px-6 py-2.5  cursor-pointer border-2 border-[#9b9590] text-[#9b9590] rounded-3xl'>SHOP NOW</Link>
+<Link to={`/product/${handle}`} className='px-6 py-2.5  cursor-pointer border-2 border-[#9b9590]  rounded-3xl'>SHOP NOW</Link>
 
     </div>
 

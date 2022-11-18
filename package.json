@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "shopify hydrogen dev",
-    "build": "shopify hydrogen build",
+    "build": "shopify hydrogen build ",
     "preview": "shopify hydrogen preview"
 
     

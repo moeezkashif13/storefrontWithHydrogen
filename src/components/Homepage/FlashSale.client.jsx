@@ -51,7 +51,21 @@ const getOnSaleVariants = flashSaleProducts.nodes.map(eachProduct=>{
 
 {/* <div className='flex flex-col h-[550px] bg-red-500'>  */}
 
-<Splide className=' flex ' options={{fixedWidth:'300px',gap:'40px',padding:'12rem',type:'loop',pagination:false,autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000}}>
+<Splide className=' flex ' options={{fixedWidth:'300px',gap:'40px',padding:'12rem',type:'loop',pagination:false,
+
+autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000,
+
+mediaQuery:'max',
+
+breakpoints:{
+    500 : {
+        padding:'2rem'
+    }
+}
+
+
+
+}}>
 
 {mainArrForProds.map((elem,index)=>{
 

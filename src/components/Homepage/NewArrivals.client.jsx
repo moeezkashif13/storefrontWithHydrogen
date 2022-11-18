@@ -198,16 +198,16 @@ export default function NewArrivals({fetchedProducts}){
 
 <div className='px-6 flex flex-col '>
 
-<div className='flex   mb-12'>
+<div className='flex  SMMax:flex-col mb-12'>
 
-<div className='w-[30%]'>
+<div className='w-[30%] SMMax:w-full'>
 
 <p className='text-[42px]'>New Arrival</p>
 
 </div>
 
 
-<div className='w-[70%] text-[#cecbc8]'>
+<div className='w-[70%] SMMax:w-full SMMax:mt-5 text-[#cecbc8]'>
 
 <div className=' px-5 w-full bg-[#f9f3ef] rounded-3xl flex gap-x-2 items-center font-semibold text-sm'>
 
@@ -224,17 +224,17 @@ export default function NewArrivals({fetchedProducts}){
 
 
 
-<div className='flex'>
+<div className='flex SMMax:flex-col  '>
 
 {/*  */}
 
-<div  className='w-[30%]   flex flex-col gap-y-5 text-[#878889]'>
+<div  className='w-[30%]  SMMax:w-full flex flex-col gap-y-5 text-[#878889]'>
 
-<div   >
+{/* <div   >
 <p className='font-semibold text-[#373e3e] mb-3'>Category</p>
 
 
-<div className='uppercase cursor-pointer font-semibold text-sm flex flex-col  gap-y-2 pr-16'>
+<div className='uppercase cursor-pointer font-semibold text-sm flex flex-col    gap-y-2 pr-16'>
 
 
 
@@ -258,10 +258,10 @@ if(index<8){
 </div>
 
 
-</div>
+</div> */}
 
 
-<div>
+{/* <div>
     
 <p className='font-semibold text-[#373e3e] mb-3'>Size</p>
 
@@ -276,13 +276,11 @@ if(index<8){
 
 </div>
 
-
-
-</div>
+</div> */}
 
 
 
-<div className='text-[#ffa9ac] font-semibold '>Clear Filters</div>
+{/* <div className='text-[#ffa9ac] font-semibold '>Clear Filters</div> */}
 
 
 
@@ -292,9 +290,9 @@ if(index<8){
 {/*  */}
 
 
-<div className='w-[70%] '>
+<div className='w-[70%]  SMMax:w-full '>
 
-<div className='flex flex-wrap gap-x-4 gap-y-6 '>
+<div className='flex flex-wrap SMMax:justify-center SMMax:py-5 gap-x-4 gap-y-6 '>
 
 
 {filterdProducts.length>0? fetchedProducts.nodes.map((eachProduct,index)=>{
@@ -309,9 +307,9 @@ if(index<8){
 </div>
 
 
-
-<a href='/category/men' ><div className='cursor-pointer font-semibold text-white bg-black rounded-3xl mt-8 inline-block px-7 py-3.5'> See All Products </div></a>
-
+<div className='  SMMax:flex SMMax:justify-center SMMax:mb-6'>
+<a href='/category/men' ><div className='mx-auto cursor-pointer font-semibold text-white bg-black rounded-3xl mt-8 inline-block px-7 py-3.5'> See All Products </div></a>
+</div>
 
 
 
