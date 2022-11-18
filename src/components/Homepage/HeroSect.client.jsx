@@ -163,7 +163,7 @@ style={{backgroundImage:`url(${featuredImage.url})`}}
     
     
 
-    <div className='absolute font-semibold right-8 bottom-10 SMMax:px-5 SMMax:bottom-16  w-[25%] SMMax:w-full SMMax:right-0 flex flex-col items-end justify-end text-white'>
+    <div className='absolute font-semibold right-8 bottom-10 SMMax:px-5 SMMax:bottom-16  w-[25%] SMMax:w-full SMMax:right-0 flex flex-col items-end justify-end text-red-500'>
 
 <h1 className='uppercase text-right text-2xl SMMax:text-lg  font-medium'>{title}</h1>
 

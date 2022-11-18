@@ -95,7 +95,9 @@ const handleAddToCart = ()=>{
 
 function PurchaseMarkup() {
     const { selectedVariant } = useProductOptions();
-    
+    console.log(selectedVariant,'frommmm  puchaseee markkupppp');
+
+
     const isOutOfStock = !selectedVariant?.availableForSale || false;
   
     return (
@@ -113,19 +115,19 @@ className="w-full  bg-black text-white py-4 font-bold rounded-lg
 
 ">Add to Cart</button> */}
 
-<div className='bg-red-500 py-8'>
+<div >
 
         <AddToCartButton
           type="button"
-          className='w-full py-8'
+      className='w-full'    
           variantId={selectedVariant?.id}
           quantity={1}
           accessibleAddingToCartLabel="Adding item to your cart"
 disabled={isOutOfStock}          
 
         >
-          <span className="bg-black text-white inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none w-full">
-            {isOutOfStock ? "Sold out" : "Add to cartttt"}
+          <span className="bg-black text-white inline-block rounded-sm font-medium text-center py-4 rounded-lg  px-6 max-w-xl leading-none w-full">
+            {isOutOfStock ? "Sold out" : "Add to cart"}
           </span>
         </AddToCartButton>
         </div>
@@ -135,7 +137,7 @@ disabled={isOutOfStock}
           </span>
         ) : (
           <BuyNowButton variantId={selectedVariant?.id}>
-            <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border w-full">
+            <span className="inline-block rounded-sm font-medium text-center py-3 px-6 max-w-xl leading-none border w-full py-4 bg-black text-white rounded-lg">
               Buy it now
             </span>
           </BuyNowButton>
@@ -148,12 +150,12 @@ disabled={isOutOfStock}
   function OptionRadio({ values, name }) {
     const { selectedOptions, setSelectedOption } = useProductOptions();
   
-    return (
+  return (
       <>
         {values.map((value) => {
           const checked = selectedOptions[name] === value;
           const id = `option-${name}-${value}`;
-  
+
           return (
             <label key={id} htmlFor={id}>
               <input
@@ -163,14 +165,19 @@ disabled={isOutOfStock}
                 name={`option[${name}]`}
                 value={value}
                 checked={checked}
-                onChange={() => setSelectedOption(name, value)}
+                onChange={() => {
+
+                  
+                  setSelectedOption(name, value)
+
+                }}
               />
               <div
               onClick={()=>applyReactToast(`${name} Selected`)}
 
 className={`transition-all duration-200 ${
                   checked ? "border-gray-500" : "border-neutral-50"
-                }   check  px-5 py-3 text-center  cursor-pointer bg-red-500  `}
+                }   check  px-5 py-3 text-center  cursor-pointer   `}
               >
                 {value}
               </div>
@@ -181,14 +188,25 @@ className={`transition-all duration-200 ${
     );
   }
   
+const ProductPriceCheck = ({product})=>{
+  const { selectedVariant } = useProductOptions();
+
+return           <ProductPrice
+className="text-gray-900 text-lg font-semibold"
+variantId={selectedVariant?.id}
+data={product}
+/>
+
+}
 
   function ProductForm({ product }) {
     const { options, selectedVariant } = useProductOptions();
-  
+
+    
     return (
       <form >
         {
-          <div className="flex flex-wrap bg-pink-500 gap-6  text-md font-semibold">
+          <div className="flex flex-wrap  gap-6  text-md font-semibold">
 
 {/* <div className='flex flex-wrap  text-md font-semibold sizeDivContainer  '>
     
@@ -203,6 +221,7 @@ className={`transition-all duration-200 ${
 
 
 </div> */}
+
 
 
             {options.map(({ name, values }) => {
@@ -223,18 +242,31 @@ className={`transition-all duration-200 ${
             })}
           </div>
         }
-        <div>
+        <div className='flex justify-between pt-4'>
+
+{selectedVariant?.compareAtPrice&&
+
+          <div className='flex items-center font-bold gap-x-2'>
+            <p>Old Price </p>
           <ProductPrice
             className="text-gray-500 line-through text-lg font-semibold"
             priceType="compareAt"
-            variantId={selectedVariant.id}
+            variantId={selectedVariant?.id}
             data={product}
           />
+          </div>
+
+}
+
+          <div className='flex items-center font-bold gap-x-2 ml-auto'>
+          <p>Sale Price </p>
+
           <ProductPrice
             className="text-gray-900 text-lg font-semibold"
-            variantId={selectedVariant.id}
+            variantId={selectedVariant?.id}
             data={product}
           />
+          </div>
         </div>
 
 
@@ -274,7 +306,7 @@ const secondDateObj = new Date();
 
 
 
-        <div className="bg-[#fafaf9] relative">
+        <div className="bg-[#fafaf9] relative ">
 
 
 
@@ -290,20 +322,6 @@ const secondDateObj = new Date();
             
         <ToastContainer />
 
-
-
-<div className='flex justify-end px-20 py-20 text-3xl'>
-
-<BsCart/>
-
-<p className='text-lg font-bold'>0000</p>
-
-
-</div>
-
-
-
-<div className='secondLine bg-black h-2 absolute top-0 left-0' style={{width:'50px'}}></div>
 
 
 {/* MINI CART MODAL */}
@@ -329,16 +347,16 @@ const secondDateObj = new Date();
 
 
 
-return <div key={index} className='w-[300px] bg-red-500 '>
+return <div key={index} className='w-[300px]  '>
 
-<div className='w-full h-[270px] bg-yellow-500'></div>
+<div className='w-full h-[270px] '></div>
 
 <div className='py-4 px-5'>
 {/* <p>{eachProduct.title}</p> */}
 
 <div className='flex text-xl items-center gap-x-3 mt-4 justify-between'>
 
-<div className='flex justify-center items-center cursor-pointer rounded-full w-9 h-9 bg-yellow-500'>
+<div className='flex justify-center items-center cursor-pointer rounded-full w-9 h-9 '>
 
 <AiOutlineMinus/>
 
@@ -356,7 +374,7 @@ return <div key={index} className='w-[300px] bg-red-500 '>
     // dispatch(modifyProductFromCart(eachProduct.id))
 
 
-}}  className='flex justify-center cursor-pointer items-center rounded-full w-9 h-9 bg-yellow-500'>
+}}  className='flex justify-center cursor-pointer items-center rounded-full w-9 h-9 '>
 
 <AiOutlinePlus/>
 
@@ -403,16 +421,15 @@ className="  bg-black px-7 mx-auto text-white py-4 font-bold rounded-lg
 
 
 
-            <div className="flex px-24 py-40">
+            <div className="flex px-24 py-24 SMMax:px-6 SMMax:py-10 SMMax:flex-col">
 
 
-<div className="w-[60%]  flex">
+<div className="w-[60%] SMMax:w-full flex ">
     
 
     <div className="flex flex-col gap-y-4">
 
     {media.nodes.map((imageReleated,index)=>{
-console.log(imageReleated);
 const {previewImage} = imageReleated;
 
 return <div style={{backgroundImage:`url(${previewImage.url})`}} className="w-12 h-12 rounded-lg bg-cover bg-center bg-no-repeat "></div>
@@ -433,14 +450,22 @@ return <div style={{backgroundImage:`url(${previewImage.url})`}} className="w-12
 
 
 <Splide hasTrack={false} options={{height:'600px',perPage:1,pagination:false,
-autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000
+autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000,
+
+breakpoints:{
+  500:{
+    arrows:false
+  }
+}
+
+
 }}>
 
 <SplideTrack >
     
 {media.nodes.map((imageReleated,index)=>{
     const {image} = imageReleated;
-    return <SplideSlide ><div  className='w-full h-[95%] bg-contain  bg-center bg-no-repeat'  style={{backgroundImage:`url(${image.url})`}}  ></div></SplideSlide>
+    return <SplideSlide ><div  className='w-full  h-[95%] SMMax:h-[100%] bg-contain SMMax:bg-cover  bg-center bg-no-repeat'  style={{backgroundImage:`url(${image.url})`}}  ></div></SplideSlide>
 })}
 </SplideTrack>
 
@@ -484,14 +509,12 @@ return <div key={index} className='w-full h-[95%] bg-yellow-500 bg-contain bg-ce
 
 
 
-<div className="w-[40%]  pl-20 flex flex-col gap-y-5">
+<div className="w-[40%] SMMax:w-full  pl-20 SMMax:pl-0 flex flex-col gap-y-5 SMMax:gap-y-3">
     
 
-<p className='font-semibold'>{vendor}</p>
+<p className='font-semibold SMMax:mt-8'>{vendor}</p>
 
-<div className='bg-red-500 px-4 pt-5 pb-4 cursor-pointer text-center font-bold ' onClick={()=>{
-    localStorage.removeItem('persist:root');
-}}>Clear Storage</div>
+
 
 <h1 className='font-semibold'>{title}</h1>
 
@@ -512,10 +535,6 @@ return <div key={index} className='w-full h-[95%] bg-yellow-500 bg-contain bg-ce
 
 <BsStarHalf/> */}
 
-
-
-
-
 </div>
 
 {/* <p className='text-sm font-semibold'>{calculateAverage([3,3,3,5,5,5,5,5,5,])}</p> */}
@@ -524,12 +543,17 @@ return <div key={index} className='w-full h-[95%] bg-yellow-500 bg-contain bg-ce
 
 <div className='text-xl font-semibold'>
 
-<p>Price: $400000.00</p>
+<p className='flex gap-x-2'>Price: <ProductPriceCheck product={productData}/></p>
+
+
+
+
+
 
 </div>
 
 
-<div >
+{/* <div >
 
 <div className="px-3 py-3 border rounded-lg     w-full flex">
 
@@ -544,10 +568,10 @@ return <div key={index} className='w-full h-[95%] bg-yellow-500 bg-contain bg-ce
 
 </div>
 
-</div>
+</div> */}
 
 
-<div className='flex justify-between items-center text-2xl my-3'>
+{/* <div className='flex justify-between items-center text-2xl my-3'>
 
 <div onClick={()=>{
 
@@ -568,7 +592,7 @@ setProductCount(oldVal=>oldVal-1);
 <div onClick={()=>setProductCount(oldVal=>oldVal+1)} className='w-11 h-11 rounded-full bg-red-500 flex items-center justify-center cursor-pointer'><AiOutlinePlus/></div>
 
 
-</div>
+</div> */}
 
 
 
@@ -592,7 +616,7 @@ className="w-full  bg-black text-white py-4 font-bold rounded-lg
 ">Add to Cart</button> */}
 
 
-<button onClick={()=>{
+{/* <button onClick={()=>{
 
 setShowMiniCart(true);
 
@@ -602,10 +626,10 @@ setShowMiniCart(true);
 className="w-full  bg-black text-white py-4 font-bold rounded-lg
 
 
-">View Mini Cart</button>
+">View Mini Cart</button> */}
 
 
-<button style={{transition:'all 0.4s linear'}} 
+{/* <button style={{transition:'all 0.4s linear'}} 
 
 
     disabled={!selectedSize&&true}
@@ -632,7 +656,7 @@ Go to Checkout
 
 
 
-</button>
+</button> */}
 
 
 
@@ -704,7 +728,7 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 </div> */}
 
 
-<div className='bg-red-500'>
+<div >
 
 <ProductForm product={productData} />
 
@@ -724,8 +748,7 @@ return <p id={eachFeature.id}  className="tabcontent   mt-6 mb-4 leading-6">{eac
 
 
 
-<div className=" flex flex-col gap-y-0">
-
+{/* <div className=" flex flex-col gap-y-0">
 
 {variants.nodes.map((elem,index)=>{
 
@@ -747,8 +770,7 @@ return         <div onClick={selectVariantHandler} key={index} className="cursor
 
 })}
 
-
-</div>
+</div> */}
 
 
 
@@ -757,7 +779,7 @@ return         <div onClick={selectVariantHandler} key={index} className="cursor
             </div>
 
 {/* REVIEWS CONTAINER */}
-<div className='pl-20 pr-28'>
+{/* <div className='pl-20 pr-28'> 
 
 
 <h1 className='mb-8 font-bold text-3xl'>Most Relevant Reviews</h1>
@@ -859,15 +881,15 @@ var daydiff = diff / (1000 * 60 * 60 * 24);
 
 <div className='flex flex-col pb-32 gap-y-3  pt-7 text-[#9fa4af]'>
 
-{/* <input ref={reviewUserName} className='rounded-lg outline-none py-4 px-6' type='text' placeholder='Name' />
+ <input ref={reviewUserName} className='rounded-lg outline-none py-4 px-6' type='text' placeholder='Name' />
 
-<input ref={shortReviewRef} className='rounded-lg outline-none py-4 px-6' type='text' placeholder='Short Review' /> */}
-
-
-{/* <textarea placeholder='Review' ref={userReview}  className='rounded-md outline-none resize-none w-full h-[400px] px-6 py-5' /> */}
+<input ref={shortReviewRef} className='rounded-lg outline-none py-4 px-6' type='text' placeholder='Short Review' /> 
 
 
-{/* <p className='text-lg text-center font-bold text-green-500 capitalize'>{commentrelatedmessage}</p> */}
+ <textarea placeholder='Review' ref={userReview}  className='rounded-md outline-none resize-none w-full h-[400px] px-6 py-5' /> 
+
+
+ <p className='text-lg text-center font-bold text-green-500 capitalize'>{commentrelatedmessage}</p> 
 
 
 <button  className='ml-auto mt-4 bg-blue-500 text-white font-semibold px-5 py-3.5 rounded-2xl'>Submit Review</button>
@@ -877,7 +899,7 @@ var daydiff = diff / (1000 * 60 * 60 * 24);
 
 
 
-</div>
+</div> */}
 
 
 {/* REVIEWS CONTAINER */}

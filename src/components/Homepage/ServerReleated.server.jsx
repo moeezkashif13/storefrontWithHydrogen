@@ -23,6 +23,14 @@ export default function ServerReleated(){
         query: GetAllVariantsForFlashSale,
         cache: CacheLong(),
       });
+
+      const {
+        data : {collections},
+      } = useShopQuery({
+        query: getCollectionsQuery,
+        cache: CacheLong(),
+      });
+
     
       
     return(
@@ -31,7 +39,7 @@ export default function ServerReleated(){
 <HeroSect fetchedProducts={products} />
 
 
-<NewArrivals fetchedProducts={products} />
+<NewArrivals  collections={collections}  fetchedProducts={products} />
 
 
 <ExploreCategs/>
@@ -47,6 +55,26 @@ export default function ServerReleated(){
 
 
 }
+
+const getCollectionsQuery = gql`
+
+query GetCollections{
+
+  collections(first:10){
+  nodes{
+    title
+    handle
+    products(first:50){
+      nodes{
+        title
+      }
+    }
+  }
+}
+}
+
+
+`
 
 const GetAllProductsForNewArrivals = gql`
 

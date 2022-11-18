@@ -92,11 +92,12 @@ const newArrivalEachProduct = (event)=>{
     }
 
 
-export default function NewArrivals({fetchedProducts}){
+export default function NewArrivals({collections,fetchedProducts}){
+
+    console.log(collections);
 
 
-    console.log(fetchedProducts);
-
+    
     const [check,setCheck] = useState(false);
 
     const [filterdProducts,setFilteredProducts] = useState([]);
@@ -230,7 +231,7 @@ export default function NewArrivals({fetchedProducts}){
 
 <div  className='w-[30%]  SMMax:w-full flex flex-col gap-y-5 text-[#878889]'>
 
-{/* <div   >
+<div   >
 <p className='font-semibold text-[#373e3e] mb-3'>Category</p>
 
 
@@ -238,17 +239,12 @@ export default function NewArrivals({fetchedProducts}){
 
 
 
-{fetchedCategories.data.map((eachCateg,index)=>{
+{collections.nodes.map((eachCateg,index)=>{
 
 
-    const {CategoryName,Products,Slug} = eachCateg.attributes;
-
-if(index<8){
-    return <div key={index} onClick={()=>showProductsByCategory(Slug)} className='flex'><p>{CategoryName}</p><p className='ml-auto'>{Products.data.length}</p></div>
-
-}else{
-    return 
-}
+    const {title,products} = eachCateg;
+// onClick={()=>showProductsByCategory(Slug)}
+    return <div key={index}  className='flex'><p>{title}</p><p className='ml-auto'>{products.nodes.length}</p></div>
 
 
 })}
@@ -258,7 +254,7 @@ if(index<8){
 </div>
 
 
-</div> */}
+</div>
 
 
 {/* <div>
