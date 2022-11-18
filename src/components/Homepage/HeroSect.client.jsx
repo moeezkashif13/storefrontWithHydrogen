@@ -8,7 +8,7 @@ import {Link} from '@shopify/hydrogen'
 
 const checkArr = ['https://richardsclothing.ca/wp-content/uploads/2018/11/fi6-e1546084492454.jpg','https://st3.depositphotos.com/2056297/14632/i/600/depositphotos_146328163-stock-photo-portrait-of-handsome-man.jpg','https://w0.peakpx.com/wallpaper/143/88/HD-wallpaper-man-in-suit-suit-male-model-interior-black-tie-man-chair-business.jpg','https://www.suitsexpert.com/wp-content/uploads/2019/04/men-suit-styles-differences-and-types.jpg']
 
-export default function HeroSect({fetchedProducts}){
+export default function HeroSect({collections,fetchedProducts}){
 
 
     // Shuffle array
@@ -93,12 +93,27 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 <div className='flex uppercase gap-x-4  text-sm text-[#879293]'>
 
 
-{[{attributes:{CategoryName:'First',Slug:'SLUG'}}].map((eachCateg,index)=>{
-const {CategoryName,Slug} = eachCateg.attributes;
+{/* 
 
-if(index<7){
-    return <a href={`/category/${Slug}`} >{CategoryName}</a>   
-}
+{collections.nodes.map((eachCateg,index)=>{
+
+
+    const {title,products} = eachCateg;
+// onClick={()=>showProductsByCategory(Slug)}
+    return <div key={index}  className='flex'><p>{title}</p><p className='ml-auto'>{products.nodes.length}</p></div>
+
+
+})}
+
+
+*/}
+
+{collections.nodes.map((eachCateg,index)=>{
+    const {title,products} = eachCateg;
+console.log(eachCateg);
+    return <a href={`#!`} >{title}</a>   
+    
+
 })}
 
 <a href='#!' >Show All</a>   

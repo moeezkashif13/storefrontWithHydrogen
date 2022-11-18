@@ -36,7 +36,7 @@ export default function ServerReleated(){
     return(
         <div className="bg-[#fffcf9]">
 
-<HeroSect fetchedProducts={products} />
+<HeroSect collections={collections} fetchedProducts={products} />
 
 
 <NewArrivals  collections={collections}  fetchedProducts={products} />
