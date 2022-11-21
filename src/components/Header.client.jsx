@@ -33,14 +33,14 @@ export default function Header({ shop,pages }) {
 
         <div className="flex bg-red-500 gap-x-5 ml-10">
 
-{pages.nodes.map(eachPage=>{
+{/* {pages.nodes.map(eachPage=>{
   
   return <Link to={`/pages/${eachPage.handle}`}>
  
 <div className="capitalize">{eachPage.title}</div>
 
   </Link>
-})}
+})} */}
 
         </div>
 
