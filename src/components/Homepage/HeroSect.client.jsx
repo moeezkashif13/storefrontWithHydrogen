@@ -240,7 +240,7 @@ return <div onClick={(event)=>HomepageHeroSectPagination(event,index)} className
 
 return <SplideSlide className='relative bg-cover bg-center bg-no-repeat' 
 
-style={{backgroundImage:`url(${featuredImage.url})`}}
+style={{backgroundImage:`url(${featuredImage.urllll})`}}
 
 
 >

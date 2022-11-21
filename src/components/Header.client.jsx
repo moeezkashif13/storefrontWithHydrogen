@@ -8,6 +8,7 @@ export default function Header({ shop,pages }) {
   const { pathname } = useUrl();
   const { isOpen, openDrawer, closeDrawer } = useDrawer();
 
+  
   const isHome = pathname === "/";
   return (
     <>
@@ -25,7 +26,7 @@ export default function Header({ shop,pages }) {
           isHome ? "bg-black/80 text-white" : "bg-white/80"
         }`}
       >
-        <div className="flex gap-12">
+        <div className="flex gap-12 ">
           <Link className="font-bold" to="/">
             {shop.name}
           </Link>
@@ -44,14 +45,74 @@ export default function Header({ shop,pages }) {
 
         </div>
 
+<div className="ml-auto flex gap-x-8">
         <button
           onClick={openDrawer}
-          className="relative ml-auto flex items-center justify-center w-8 h-8"
+          className="relative  flex items-center justify-center w-8 h-8"
         >
           <IconBag />
           <CartBadge dark={isHome} />
         </button>
+
+<button onClick={()=>{
+
+  document.querySelector('.headerDropdown').classList.toggle('bringDropdown');
+
+}}
+          className="relative  flex items-center justify-center w-8 h-8"
+
+>
+
+<IconBag />
+          <CartBadge dark={isHome} />
+
+</button>
+
+
+        </div>
       </header>
+      
+
+<div className="w-full h-full absolute headerDropdown bringDropdown z-20 font-semibold text-lg " style={{transition:'all 1.5s ',top:'-100%'}} >
+
+{screen?screen.width<500&& <>
+<div className="bg-white  w-full py-20 px-6 flex flex-col gap-y-4">
+<div>
+
+<p>HOME</p>
+<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
+</div>
+
+<div>
+
+<p>HOME</p>
+<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
+</div>
+
+
+<div>
+
+<p>HOME</p>
+<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
+</div>
+
+<div>
+
+<p>HOME</p>
+<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
+</div>
+
+</div>
+
+</>
+
+
+
+:null   }
+
+</div>
+
+
     </>
   );
 }

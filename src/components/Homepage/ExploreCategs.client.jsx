@@ -11,9 +11,11 @@ export default function ExploreCategs({collections}){
 
 <div className='flex w-full flex-wrap  gap-x-4'>
 
-<Splide options={{perPage:2,height:'250px',pagination:false,gap:'20px',arrows:false,
+<Splide options={{perPage:2,height:'250px',pagination:false,gap:'20px',arrows:false, type:'loop',
 
 // autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:3000,
+
+autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000,
 
 
 breakpoints: {
