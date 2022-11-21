@@ -3,8 +3,8 @@ import { Drawer, useDrawer } from "./Cart/Drawer.client";
 import { CartDetails, } from "./Cart/CartDetails.client";
 
 export default function Header({ shop,pages }) {
-  console.log(shop);
-  console.log(pages);
+
+  
   const { pathname } = useUrl();
   const { isOpen, openDrawer, closeDrawer } = useDrawer();
 

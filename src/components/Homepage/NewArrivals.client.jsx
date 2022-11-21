@@ -196,9 +196,9 @@ export default function NewArrivals({collections,fetchedProducts}){
 
 <div className='px-6 flex flex-col '>
 
-<div className='flex  SMMax:flex-col mb-12'>
+{/* <div className='flex  SMMax:flex-col mb-12 bg-yellow-500'>
 
-<div className='w-[30%] SMMax:w-full'>
+<div className='w-[30%] SMMax:w-full bg-red-500'>
 
 <p className='text-[42px]'>New Arrival</p>
 
@@ -218,7 +218,7 @@ export default function NewArrivals({collections,fetchedProducts}){
 
 </div>
 
-</div>
+</div> */}
 
 
 
@@ -226,7 +226,7 @@ export default function NewArrivals({collections,fetchedProducts}){
 
 {/*  */}
 
-<div  className='w-[30%]  SMMax:w-full flex flex-col gap-y-5 text-[#878889]'>
+{/* <div  className='w-[30%]  SMMax:w-full flex flex-col gap-y-5 text-[#878889]'>
 
 <div   >
 <p className='font-semibold text-[#373e3e] mb-3'>Category</p>
@@ -254,38 +254,24 @@ export default function NewArrivals({collections,fetchedProducts}){
 </div>
 
 
-{/* <div>
-    
-<p className='font-semibold text-[#373e3e] mb-3'>Size</p>
 
 
-<div className='uppercase cursor-pointer font-semibold text-sm flex flex-col  gap-y-2 pr-16'>
+ <div className='text-[#ffa9ac] font-semibold '>Clear Filters</div> 
 
-<div className='flex'><p>Men</p><p className='ml-auto'>312</p></div>
-<div className='flex'><p>Men</p><p className='ml-auto'>312</p></div>
-<div className='flex'><p>Men</p><p className='ml-auto'>312</p></div>
-<div className='flex'><p>Men</p><p className='ml-auto'>312</p></div>
-<div className='flex'><p>Men</p><p className='ml-auto'>312</p></div>
 
-</div>
 
 </div> */}
-
-
-
-{/* <div className='text-[#ffa9ac] font-semibold '>Clear Filters</div> */}
-
-
-
-</div>
 
 
 {/*  */}
 
 
-<div className='w-[70%]  SMMax:w-full '>
+<div className='w-[100%]  SMMax:w-full '>
 
-<div className='flex flex-wrap SMMax:justify-center SMMax:py-5 gap-x-4 gap-y-6 '>
+<h1 className='text-center text-4xl mb-8 font-bold'>New Arrivals</h1>
+
+
+<div className='flex flex-wrap justify-between SMMax:justify-center SMMax:py-5 gap-x-4 gap-y-6 '>
 
 
 {filterdProducts.length>0? fetchedProducts.nodes.map((eachProduct,index)=>{

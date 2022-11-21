@@ -113,14 +113,10 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
         useEffect(()=>{
 
 const randomTime = Math.random() * ('150' - '60') ;
-// + '120'
 
-// console.log(randomTime+'120');
-
-console.log(randomTime.toFixed(0));
 
 const toFixedRandomTime = randomTime.toFixed(0);
-console.log(toFixedRandomTime);
+
 const mainRandomProd = getRandomItem(fetchedProducts.nodes)
 
 
@@ -138,8 +134,6 @@ setTimeout(() => {
         },[dynamicRandomProd])
 
 // const selectRandomProd = fetchedProducts
-
-console.log(randomProductOneTime);
 
 
     return (

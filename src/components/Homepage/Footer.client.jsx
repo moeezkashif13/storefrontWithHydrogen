@@ -2,14 +2,45 @@ import {BiMessageRounded,BiMessageAlt} from 'react-icons/bi'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {FaFacebookF,FaInstagram} from 'react-icons/fa'
 import {AiOutlineTwitter} from 'react-icons/ai'
-import {Link, useShop} from '@shopify/hydrogen'
-import { useEffect } from 'react/cjs/react.production.min'
+import {Link} from '@shopify/hydrogen'
+import { useEffect,useState } from 'react'
+import axios from 'axios'
 
 
 export default function Footer({pages}){
 
+const [footerReleated,setFooterReleated] = useState({});
+
+useEffect(()=>{
+
+  axios.get('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
+    headers:{
+      'X-Shopify-Access-Token' : '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',
+      
+    }
+  }).then(resp=>{
+    console.log(resp);
+    setFooterReleated(resp.data.shop)
+  }).catch(err=>{
+    console.log(err);
+  })
+
+  // fetch('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
+  //   headers:{
+  //     'X-Shopify-Access-Token' : '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',
+  //     'Content-Type': 'application/json'
+  //   }
+  // }).then(resp=>{
+  //   console.log(resp);
+  // }).catch(err=>{
+  //   console.log(err);
+  // })
+
+
+},[])
+
   return (
-        <div className=' px-20 pt-24 pb-10  '>
+        <div className=' px-20 pt-24 pb-10 SMMax:px-6 SMMax:pt-5 SMMax:pb-5   '>
 
 
 
@@ -49,12 +80,12 @@ export default function Footer({pages}){
 <div className='flex border-2  py-5'>
 
 
-<div className=' flex  flex-grow justify-center gap-x-48 text-black font-semibold'>
+<div className=' flex SMMax:flex-col SMMax:px-3 SMMax:gap-y-6   w-full  justify-center gap-x-48 text-black font-semibold'>
 
 <div >
-<h2 className='text-gray-500 font-bold text-2xl mb-6'>Service</h2>
+<h2 className='text-gray-500 font-bold text-2xl mb-6 SMMax:mb-3 '>Service</h2>
 
-<div className='flex flex-col gap-y-5'>
+<div className='flex flex-col gap-y-5 SMMax:gap-y-4'>
 <p>About Us</p>
 <p>Contact Us</p>
 <p>Features</p>
@@ -64,11 +95,11 @@ export default function Footer({pages}){
 </div>
 
 <div className=''>
-<h2 className='text-gray-500 font-bold text-2xl mb-6'>Pages</h2>
+<h2 className='text-gray-500 font-bold text-2xl mb-6 SMMax:mb-3'>Pages</h2>
 
-<div className='flex flex-col gap-y-5'>
+<div className='flex flex-col gap-y-5 SMMax:gap-y-4'>
   {pages.nodes.map(eachPage=>{
-    return <Link to={`/pages/${eachPage.handle}`}>{eachPage.title}</Link>
+    return <Link className='capitalize' to={`/pages/${eachPage.handle}`}>{eachPage.title}</Link>
   })}
 
 
@@ -80,19 +111,26 @@ export default function Footer({pages}){
 
 
 <div   >
-<h2 className='text-gray-500 font-bold text-2xl mb-6'>Contact</h2>
+<h2 className='text-gray-500 font-bold text-2xl mb-6 SMMax:mb-3'>Contact</h2>
 
 <div className='flex flex-col gap-y-5'>
 <p className='flex gap-x-3 items-center'>
 <span className='pt-1'><BiMessageAlt/></span>
-  <span>podia@gmail.com</span>
+  <span>{footerReleated.customer_email}</span>
 </p>
 
 <p className='flex gap-x-3 items-center'>
   <span><BsFillTelephoneFill/></span>
-  <span>+1(302)931-4524</span>
+<span>+1({footerReleated.phone?.substring(0,3)}){footerReleated.phone?.substring(3,6)}-{footerReleated.phone?.substring(6,10)} </span>
+
 </p>
 
+
+<p>
+
+{footerReleated.address1} {footerReleated.address2} {footerReleated.city} {footerReleated.province} {footerReleated.zip} 
+
+</p>
 
 {/* <div className='flex justify-between font-bold text-md'>
 
@@ -122,12 +160,12 @@ export default function Footer({pages}){
 
 
 
-<div className='mt-24 mb-7 bg-gray-500 h-0.5 w-full'></div>
+<div className='mt-24 SMMax:mt-12 mb-7 bg-gray-500 h-0.5 w-full'></div>
+ 
 
-
-<div className='flex text-sm justify-center text-gray-500 font-semibold' >
-
-&#169; 2022 Podia.com. All rights reserved
+<div className='flex text-sm justify-center text-gray-500 font-semibold ' >
+{console.log(footerReleated)}
+&#169; 2022 {footerReleated.domain?.split(".")[0]}. All rights reserved
 
 </div>
 
