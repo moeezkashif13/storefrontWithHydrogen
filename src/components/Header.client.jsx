@@ -2,7 +2,9 @@ import { useUrl, Link, useCart } from "@shopify/hydrogen";
 import { Drawer, useDrawer } from "./Cart/Drawer.client";
 import { CartDetails, } from "./Cart/CartDetails.client";
 
-export default function Header({ shop }) {
+export default function Header({ shop,pages }) {
+  console.log(shop);
+  console.log(pages);
   const { pathname } = useUrl();
   const { isOpen, openDrawer, closeDrawer } = useDrawer();
 
@@ -19,7 +21,7 @@ export default function Header({ shop }) {
       </Drawer>
       <header
         role="banner"
-        className={`flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 antialiased transition shadow-sm ${
+        className={`flex items-center h-16 p-6 md:p-8 lg:p-12 sticky backdrop-blur-lg z-40 top-0  w-full leading-none gap-4 antialiased transition shadow-sm ${
           isHome ? "bg-black/80 text-white" : "bg-white/80"
         }`}
       >
@@ -29,9 +31,22 @@ export default function Header({ shop }) {
           </Link>
         </div>
 
+        <div className="flex bg-red-500 gap-x-5 ml-10">
+
+{pages.nodes.map(eachPage=>{
+  
+  return <Link to={`/pages/${eachPage.handle}`}>
+ 
+<div className="capitalize">{eachPage.title}</div>
+
+  </Link>
+})}
+
+        </div>
+
         <button
           onClick={openDrawer}
-          className="relative flex items-center justify-center w-8 h-8"
+          className="relative ml-auto flex items-center justify-center w-8 h-8"
         >
           <IconBag />
           <CartBadge dark={isHome} />

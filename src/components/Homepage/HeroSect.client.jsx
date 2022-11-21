@@ -80,12 +80,90 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 
         }
 
+        useEffect(()=>{
+
+            setTimeout(() => {
+                document.querySelector('.checkBroAvien').style.bottom = '5%';
+            }, 2000);
+            
+            setTimeout(() => {
+                document.querySelector('.checkBroAvien').style.bottom = '-100%';
+                document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
+            }, 5000);
+
+        },[])
+
+        function getRandomItem(arr) {
+
+            // get random index value
+            const randomIndex = Math.floor(Math.random() * arr.length);
+        
+            // get random item
+            const item = arr[randomIndex];
+        
+            return item;
+        }
+        
+        
+        const randomProductOneTime = getRandomItem(fetchedProducts.nodes);
+
+
+        const [dynamicRandomProd,setDynamicRandomProd] = useState();
+
+        useEffect(()=>{
+
+const randomTime = Math.random() * ('150' - '60') ;
+// + '120'
+
+// console.log(randomTime+'120');
+
+console.log(randomTime.toFixed(0));
+
+const toFixedRandomTime = randomTime.toFixed(0);
+console.log(toFixedRandomTime);
+const mainRandomProd = getRandomItem(fetchedProducts.nodes)
+
+
+setTimeout(() => {
+    setDynamicRandomProd(mainRandomProd);
+    document.querySelector('.checkBroAvien').style.bottom = '5%';
+}, toFixedRandomTime*1000);
+
+setTimeout(() => {
+    document.querySelector('.checkBroAvien').style.bottom = '-100%';
+    document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
+}, (toFixedRandomTime*1000)+3000);
+
+
+        },[dynamicRandomProd])
+
+// const selectRandomProd = fetchedProducts
+
+console.log(randomProductOneTime);
+
 
     return (
         <div className=" h-[95vh] relative ">
 
+<Link to={`/product/${dynamicRandomProd?dynamicRandomProd.handle:randomProductOneTime?.handle}`}>
+<div className=" flex fixed bg-black text-white w-[400px] -bottom-[100%] left-8 z-20 checkBroAvien" style={{transition:'all 0.5s'}}>
 
-        <div className='SMMax:hidden  bg-[#112224] w-[95%] z-10  font-semibold py-3.5 px-7 top-6 absolute rounded-3xl text-white flex items-center justify-between  ' style={{left:'50%',transform:'translateX(-50%)'}}>
+    <div className='w-[100%] h-[100px] h-full  bg-contain bg-center bg-no-repeat' style={{backgroundImage:`url(${dynamicRandomProd?dynamicRandomProd.featuredImage.url:randomProductOneTime.featuredImage.url})`}}></div>
+
+<div className='px-3 py-3 font-semibold'>
+
+<span >A customer has purchased {dynamicRandomProd?dynamicRandomProd.title:randomProductOneTime?.title} successfully</span>
+
+
+</div>
+
+</div>
+
+</Link>
+
+
+
+        {/* <div className='SMMax:hidden  bg-[#112224] w-[95%] z-10  font-semibold py-3.5 px-7 top-6 absolute rounded-3xl text-white flex items-center justify-between  ' style={{left:'50%',transform:'translateX(-50%)'}}>
 
 
 <p className='font-bold text-lg'>LAUTARO</p>
@@ -105,12 +183,9 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 
 })}
 
-
-*/}
-
 {collections.nodes.map((eachCateg,index)=>{
     const {title,products} = eachCateg;
-console.log(eachCateg);
+
     return <a href={`#!`} >{title}</a>   
     
 
@@ -136,7 +211,7 @@ console.log(eachCateg);
 </div>
 
 
-</div>
+</div> */}
 
 
 

@@ -94,9 +94,6 @@ const newArrivalEachProduct = (event)=>{
 
 export default function NewArrivals({collections,fetchedProducts}){
 
-    console.log(collections);
-
-
     
     const [check,setCheck] = useState(false);
 

@@ -31,12 +31,22 @@ export default function ServerReleated(){
         cache: CacheLong(),
       });
 
+      const {
+        data : {pages},
+      } = useShopQuery({
+        query: getPagesQuery,
+        cache: CacheLong(),
+      });
     
       
     return(
-        <div className="bg-[#fffcf9]">
+        <div className="bg-[#fffcf9] ">
 
-<HeroSect collections={collections} fetchedProducts={products} />
+
+
+
+
+<HeroSect  collections={collections} fetchedProducts={products} />
 
 
 <NewArrivals  collections={collections}  fetchedProducts={products} />
@@ -47,7 +57,7 @@ export default function ServerReleated(){
 <FlashSale flashSaleProducts={CheckProducts} />
 
 
-{/* <Footer/> */}
+<Footer pages={pages} />
 
 
         </div>
@@ -72,9 +82,10 @@ query GetCollections{
   }
 }
 }
-
-
 `
+
+
+
 
 const GetAllProductsForNewArrivals = gql`
 
@@ -122,6 +133,20 @@ variants(first:50){
 
 
 }
+
+
+`
+
+const getPagesQuery = gql`
+
+  query GetPages{
+    pages(first:10){
+      nodes{
+        title
+        handle
+      }
+    }
+  }
 
 
 `

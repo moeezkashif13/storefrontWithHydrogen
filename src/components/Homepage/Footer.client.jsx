@@ -2,17 +2,19 @@ import {BiMessageRounded,BiMessageAlt} from 'react-icons/bi'
 import {BsFillTelephoneFill} from 'react-icons/bs'
 import {FaFacebookF,FaInstagram} from 'react-icons/fa'
 import {AiOutlineTwitter} from 'react-icons/ai'
+import {Link, useShop} from '@shopify/hydrogen'
+import { useEffect } from 'react/cjs/react.production.min'
+
+
+export default function Footer({pages}){
+
+  return (
+        <div className=' px-20 pt-24 pb-10  '>
 
 
 
-export default function Footer(){
-    return (
-        <div className=' px-20 pt-24 pb-10 bg-[#020418] '>
 
-
-
-
-<div className='bg-[#2960f8]  py-[80px] px-16 mb-24 flex items-center rounded-3xl '>
+{/* <div className='bg-[#2960f8]  py-[80px] px-16 mb-24 flex items-center rounded-3xl '>
 
 
 <p className='text-white font-semibold text-5xl'>Subscribe Newsletter</p>
@@ -39,28 +41,15 @@ export default function Footer(){
 
 
 
-</div>
+</div> */}
 
 
 
 
-<div className='flex  '>
-
-<div className=' w-[20%]'>
-
-<div>
-
-<div className='w-full h-24 '></div>
-
-</div>
+<div className='flex border-2  py-5'>
 
 
-<p className='font-semibold  mt-5'>Create, distribute, and monetize your podcast all for free.</p>
-
-
-</div>
-
-<div className=' flex  flex-grow justify-center gap-x-48 text-white font-semibold'>
+<div className=' flex  flex-grow justify-center gap-x-48 text-black font-semibold'>
 
 <div >
 <h2 className='text-gray-500 font-bold text-2xl mb-6'>Service</h2>
@@ -75,13 +64,14 @@ export default function Footer(){
 </div>
 
 <div className=''>
-<h2 className='text-gray-500 font-bold text-2xl mb-6'>Resources</h2>
+<h2 className='text-gray-500 font-bold text-2xl mb-6'>Pages</h2>
 
 <div className='flex flex-col gap-y-5'>
-<p>Apps</p>
-<p>Developer</p>
-<p>Integration</p>
-<p>Pricing</p>
+  {pages.nodes.map(eachPage=>{
+    return <Link to={`/pages/${eachPage.handle}`}>{eachPage.title}</Link>
+  })}
+
+
 </div>
 
 </div>
@@ -104,7 +94,7 @@ export default function Footer(){
 </p>
 
 
-<div className='flex justify-between font-bold text-md'>
+{/* <div className='flex justify-between font-bold text-md'>
 
 <a href='#!' className='w-8 h-8 rounded-full flex justify-center items-center border-2'>
 <FaFacebookF/>
@@ -119,7 +109,9 @@ export default function Footer(){
 <FaInstagram/>
 </a>
 
-</div>
+</div> */}
+
+
 </div>
 
 </div>

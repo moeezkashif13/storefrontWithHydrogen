@@ -14,6 +14,13 @@ export function Layout({ children }) {
     cache: CacheLong(),
   });
 
+  const {
+    data : {pages},
+  } = useShopQuery({
+    query: getPagesQuery,
+    cache: CacheLong(),
+  });
+
   return (
     <>
       <Suspense>
@@ -31,7 +38,7 @@ export function Layout({ children }) {
             Skip to content
           </a>
         </div>
-        <Header shop={shop} />
+        <Header pages={pages} shop={shop} />
 
         <main role="main" id="mainContent" className="flex-grow">
           <Suspense fallback={null}>{children}</Suspense>
@@ -49,3 +56,17 @@ const SHOP_QUERY = gql`
     }
   }
 `;
+
+const getPagesQuery = gql`
+
+  query GetPages{
+    pages(first:10){
+      nodes{
+        title
+        handle
+      }
+    }
+  }
+
+
+`
