@@ -24,7 +24,7 @@ let selected = shuffled.slice(0, 5);
 
     
     useEffect(()=>{
-        document.querySelectorAll('.paginationOutside')[0].classList.add('paginationOutsideActive')
+        document.querySelectorAll('.paginationOutside')[0]?.classList.add('paginationOutsideActive')
     },[])
 
 
@@ -89,7 +89,7 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
             setTimeout(() => {
                 document.querySelector('.checkBroAvien').style.bottom = '-100%';
                 document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
-            }, 5000);
+            }, 60000);
 
         },[])
 
@@ -140,13 +140,13 @@ setTimeout(() => {
         <div className=" h-[95vh] relative ">
 
 <Link to={`/product/${dynamicRandomProd?dynamicRandomProd.handle:randomProductOneTime?.handle}`}>
-<div className=" flex fixed bg-black text-white w-[400px] -bottom-[100%] left-8 z-20 checkBroAvien" style={{transition:'all 0.5s'}}>
+<div className=" flex fixed bg-black text-white w-[400px] SMMax:w-[85%]  -bottom-[100%] left-8 SMMax:left-2 z-20 checkBroAvien" style={{transition:'all 0.5s'}}>
 
     <div className='w-[100%] h-[100px] h-full  bg-contain bg-center bg-no-repeat' style={{backgroundImage:`url(${dynamicRandomProd?dynamicRandomProd.featuredImage.url:randomProductOneTime.featuredImage.url})`}}></div>
 
 <div className='px-3 py-3 font-semibold'>
 
-<span >A customer has purchased {dynamicRandomProd?dynamicRandomProd.title:randomProductOneTime?.title} successfully</span>
+<span className='SMMax:text-sm'>A customer has purchased {dynamicRandomProd?dynamicRandomProd.title:randomProductOneTime?.title} successfully</span>
 
 
 </div>
@@ -211,7 +211,7 @@ setTimeout(() => {
 
 {/* PAGINATION */}
 
-<div className='flex absolute z-10  w-full bottom-10 justify-center gap-x-4'>
+{/* <div className='flex absolute z-10  w-full bottom-10 justify-center gap-x-4'>
 
 {selected.map((elem,index)=>{
 return <div onClick={(event)=>HomepageHeroSectPagination(event,index)} className='paginationOutside  cursor-pointer w-[16px] h-[16px] rounded-full border flex justify-center items-center' style={{transition:'all 2s'}}>
@@ -220,7 +220,7 @@ return <div onClick={(event)=>HomepageHeroSectPagination(event,index)} className
 })}
 
 
-</div>
+</div> */}
 
 {/* PAGINATION */}
 
@@ -240,7 +240,7 @@ return <div onClick={(event)=>HomepageHeroSectPagination(event,index)} className
 
 return <SplideSlide className='relative bg-cover bg-center bg-no-repeat' 
 
-style={{backgroundImage:`url(${featuredImage.urllll})`}}
+style={{backgroundImage:`url(${featuredImage.url})`}}
 
 
 >

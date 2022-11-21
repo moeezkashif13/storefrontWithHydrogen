@@ -2,6 +2,8 @@ import { useUrl, Link, useCart } from "@shopify/hydrogen";
 import { Drawer, useDrawer } from "./Cart/Drawer.client";
 import { CartDetails, } from "./Cart/CartDetails.client";
 
+import {BiListUl} from 'react-icons/bi'
+
 export default function Header({ shop,pages }) {
 
   
@@ -53,8 +55,11 @@ export default function Header({ shop,pages }) {
           <IconBag />
           <CartBadge dark={isHome} />
         </button>
+        
 
-<button onClick={()=>{
+        
+
+       {/* <button onClick={()=>{
 
   document.querySelector('.headerDropdown').classList.toggle('bringDropdown');
 
@@ -66,17 +71,37 @@ export default function Header({ shop,pages }) {
 <IconBag />
           <CartBadge dark={isHome} />
 
-</button>
+</button> */}
 
+        
+        {screen?screen.width<500&&       <button onClick={()=>{
 
+document.querySelector('.headerDropdown').classList.toggle('bringDropdown');
+
+}}
+        className="relative  flex items-center justify-center w-8 h-8"
+
+>
+
+<BiListUl size={20}/>
+
+</button>:null}
+        
+        
         </div>
+
+
+
+
+
+
       </header>
       
 
-<div className="w-full h-full absolute headerDropdown bringDropdown z-20 font-semibold text-lg " style={{transition:'all 1.5s ',top:'-100%'}} >
+<div className="w-full h-full absolute headerDropdown  z-20 font-semibold text-lg " style={{transition:'all 1.5s ',top:'-100%'}} >
 
 {screen?screen.width<500&& <>
-<div className="bg-white  w-full py-20 px-6 flex flex-col gap-y-4">
+<div className="bg-white  w-full pt-20 pb-10 px-6 flex flex-col gap-y-4">
 <div>
 
 <p>HOME</p>

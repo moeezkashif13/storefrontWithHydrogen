@@ -8,7 +8,7 @@
     "node": ">=16.14.0"
   },
   "scripts": {
-    "dev": "shopify hydrogen dev --host",
+    "dev": "shopify hydrogen dev",
     "build": "shopify hydrogen build ",
     "preview": "shopify hydrogen preview"
   },

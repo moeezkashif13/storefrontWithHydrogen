@@ -47,7 +47,7 @@ const check =       fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-
         }
       })
 
-      console.log(check);
+      
 
       // const [footer,setFooter] = useState();
 
