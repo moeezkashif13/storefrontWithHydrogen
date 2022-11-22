@@ -1,12 +1,13 @@
 import {
-    gql,
-    useShopQuery,
-    useServerAnalytics,
-    useRouteParams,
-    ShopifyAnalyticsConstants,
-    Seo,
-  } from "@shopify/hydrogen";
-  import { Suspense } from "react";
+  gql,
+  useShopQuery,
+  useServerAnalytics,
+  useRouteParams,
+  ShopifyAnalyticsConstants,
+  Seo,
+} from "@shopify/hydrogen";
+
+import { Suspense } from "react";
   
   import { Layout } from "../../components/Layout.server";
 

@@ -89,6 +89,17 @@ const check =       fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-
 <FlashSale flashSaleProducts={CheckProducts} />
 
 
+<div>
+asdasdasd
+
+
+<div id="c1g_testimonial"></div>
+
+{/* data-shop="sahhmallllc.myshopify.com" */}
+
+</div>
+
+
 <Footer footerData={footer} pages={pages} />
 
 
