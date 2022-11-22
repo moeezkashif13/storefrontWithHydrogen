@@ -40,7 +40,7 @@ export default function ServerReleated(){
         cache: CacheLong(),
       });
 
-const TestimonialsRelated =       fetchSync('http://localhost:1337/api/testimonials?populate[0]=EachTestimonial&populate[1]=EachTestimonial.UserImage',).json();
+// const TestimonialsRelated =       fetchSync('http://localhost:1337/api/testimonials?populate[0]=EachTestimonial&populate[1]=EachTestimonial.UserImage',).json();
 
 
 
@@ -64,7 +64,7 @@ const TestimonialsRelated =       fetchSync('http://localhost:1337/api/testimoni
 <FlashSale flashSaleProducts={CheckProducts} />
 
 
-<Testimonials  TestimonialsRelated={TestimonialsRelated} />
+{/* <Testimonials  TestimonialsRelated={TestimonialsRelated} /> */}
 
 
 <Footer footerData={footer} pages={pages} />
