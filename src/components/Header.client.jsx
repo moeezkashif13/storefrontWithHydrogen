@@ -1,8 +1,51 @@
-import { useUrl, Link, useCart } from "@shopify/hydrogen";
+import { useUrl, Link , useCart } from "@shopify/hydrogen";
 import { Drawer, useDrawer } from "./Cart/Drawer.client";
 import { CartDetails, } from "./Cart/CartDetails.client";
 
 import {BiListUl} from 'react-icons/bi'
+
+
+const CommonLinks = ({screenType})=>{
+  return (
+    <>
+
+
+<Link to="/">
+
+{/* <p {screenType==='mobile' ? className=" border-2 px-5 py-4 border-x-0" :null } >HOME</p> */}
+
+<p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >HOME</p>
+
+
+</Link>
+
+<Link to="/collections/all">
+
+<p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >Catalog</p>
+
+
+</Link>
+
+
+<Link to="/pages/contact-us">
+
+
+<p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >Contact Us</p>
+
+
+</Link>
+
+<div>
+
+<p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >Order Status</p>
+
+</div>
+
+
+</>
+  )
+}
+
 
 export default function Header({ shop,pages }) {
 
@@ -29,21 +72,16 @@ export default function Header({ shop,pages }) {
         }`}
       >
         <div className="flex gap-12 ">
-          <Link className="font-bold" to="/">
+          <p className="font-bold" to="/">
             {shop.name}
-          </Link>
+          </p>
         </div>
 
-        <div className="flex bg-red-500 gap-x-5 ml-10">
+        <div className="flex font-semibold text-sm uppercase mt-[2px]  gap-x-4 ml-10">
 
-{/* {pages.nodes.map(eachPage=>{
-  
-  return <Link to={`/pages/${eachPage.handle}`}>
- 
-<div className="capitalize">{eachPage.title}</div>
 
-  </Link>
-})} */}
+<CommonLinks/>
+
 
         </div>
 
@@ -96,46 +134,31 @@ document.querySelector('.headerDropdown').classList.toggle('bringDropdown');
 
 
       </header>
-      
-
-<div className="w-full h-full absolute headerDropdown  z-20 font-semibold text-lg " style={{transition:'all 1.5s ',top:'-100%'}} >
-
-{screen?screen.width<500&& <>
-<div className="bg-white  w-full pt-20 pb-10 px-6 flex flex-col gap-y-4">
-<div>
-
-<p>HOME</p>
-<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
-</div>
-
-<div>
-
-<p>HOME</p>
-<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
-</div>
 
 
-<div>
 
-<p>HOME</p>
-<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
-</div>
 
-<div>
 
-<p>HOME</p>
-<div className="h-0.5 w-full bg-gray-500 mt-1"></div>
-</div>
+{screen?.width<500?
+
+<div className="w-full h-full absolute headerDropdown  z-20 text-md " style={{transition:'all 1.5s ',top:'-100%'}} >
+
+<div className="bg-white  w-full pt-20 pb-10  flex flex-col gap-y-4 font-bold uppercase text-[#766d6d]">
+
+
+<CommonLinks screenType={'mobile'} />
+
 
 </div>
-
-</>
-
-
-
-:null   }
-
 </div>
+
+:     null
+
+
+
+}
+
+
 
 
     </>

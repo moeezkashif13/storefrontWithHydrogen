@@ -25,17 +25,7 @@ useEffect(()=>{
     console.log(err);
   })
 
-  // fetch('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
-  //   headers:{
-  //     'X-Shopify-Access-Token' : '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',
-  //     'Content-Type': 'application/json'
-  //   }
-  // }).then(resp=>{
-  //   console.log(resp);
-  // }).catch(err=>{
-  //   console.log(err);
-  // })
-
+  
 
 },[])
 
@@ -98,7 +88,7 @@ useEffect(()=>{
 <h2 className='text-gray-500 font-bold text-2xl mb-6 SMMax:mb-3'>Pages</h2>
 
 <div className='flex flex-col gap-y-5 SMMax:gap-y-4'>
-  {pages.nodes.map(eachPage=>{
+  {pages?.nodes.map(eachPage=>{
     return <Link className='capitalize' to={`/pages/${eachPage.handle}`}>{eachPage.title}</Link>
   })}
 

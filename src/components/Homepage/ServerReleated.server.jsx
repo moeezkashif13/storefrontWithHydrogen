@@ -4,10 +4,10 @@ import { useShopQuery, CacheLong, gql } from "@shopify/hydrogen";
 import ExploreCategs from "./ExploreCategs.client";
 import FlashSale from "./FlashSale.client";
 import HeroSect from "./HeroSect.client";
-import Footer from "./Footer.client";
+import Footer from "../Footer.client";
 import { useState } from "react";
 import { fetchSync } from "@shopify/hydrogen";
-
+import Testimonials from "./Testimonials.client";
 
 export default function ServerReleated(){
 
@@ -40,34 +40,9 @@ export default function ServerReleated(){
         cache: CacheLong(),
       });
 
-const check =       fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
-        headers:{
-          'X-Shopify-Access-Token' : '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',
-          'Content-Type': 'application/json'
-        }
-      })
-
-      
-
-      // const [footer,setFooter] = useState();
-
-      // useEffect(()=>{
+const TestimonialsRelated =       fetchSync('http://localhost:1337/api/testimonials?populate[0]=EachTestimonial&populate[1]=EachTestimonial.UserImage',).json();
 
 
-      //   fetch('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
-      //     headers:{
-      //       'X-Shopify-Access-Token' : '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',
-      //       'Content-Type': 'application/json'
-      //     }
-      //   }).then(resp=>{
-      //     console.log(resp);
-      //     setFooter(footer)
-      //   }).catch(err=>{
-      //     console.log(err);
-      //   })
-      
-      
-      // },[])
 
       const footer = 2222;
       
@@ -84,20 +59,12 @@ const check =       fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-
 <NewArrivals  collections={collections}  fetchedProducts={products} />
 
 
-<ExploreCategs collections={collections} />
+{/* <ExploreCategs collections={collections} /> */}
 
 <FlashSale flashSaleProducts={CheckProducts} />
 
 
-<div>
-asdasdasd
-
-
-<div id="c1g_testimonial"></div>
-
-{/* data-shop="sahhmallllc.myshopify.com" */}
-
-</div>
+<Testimonials  TestimonialsRelated={TestimonialsRelated} />
 
 
 <Footer footerData={footer} pages={pages} />

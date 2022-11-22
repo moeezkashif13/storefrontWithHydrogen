@@ -10,6 +10,7 @@ import {
 import { Suspense } from "react";
   
   import { Layout } from "../../components/Layout.server";
+import Notification from "../../components/Notification.client";
 
   
 import ProductPage from "../../components/ProductPage/ProductPage.client";

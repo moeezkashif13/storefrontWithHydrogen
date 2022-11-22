@@ -6,7 +6,9 @@ export default defineConfig({
     storefrontToken: 'f4a34a6e875d62ba3cc3b14242ea507d',
     storefrontApiVersion: '2022-10',
   
-    privateStorefrontToken:'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'
+    privateStorefrontToken: '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',
+
+
   
   },
 
@@ -14,6 +16,3 @@ export default defineConfig({
 
 });
 
-
-
-// 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

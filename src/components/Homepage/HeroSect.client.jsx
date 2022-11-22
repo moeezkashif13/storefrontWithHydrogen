@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import {AiOutlineSearch,AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
 
 import {Link} from '@shopify/hydrogen'
+import Notification from '../Notification.client';
 
 
 const checkArr = ['https://richardsclothing.ca/wp-content/uploads/2018/11/fi6-e1546084492454.jpg','https://st3.depositphotos.com/2056297/14632/i/600/depositphotos_146328163-stock-photo-portrait-of-handsome-man.jpg','https://w0.peakpx.com/wallpaper/143/88/HD-wallpaper-man-in-suit-suit-male-model-interior-black-tie-man-chair-business.jpg','https://www.suitsexpert.com/wp-content/uploads/2019/04/men-suit-styles-differences-and-types.jpg']
@@ -80,66 +81,65 @@ clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 
         }
 
-        useEffect(()=>{
+//         useEffect(()=>{
 
-            setTimeout(() => {
-                document.querySelector('.checkBroAvien').style.bottom = '5%';
-            }, 2000);
+//             setTimeout(() => {
+//                 document.querySelector('.checkBroAvien').style.bottom = '5%';
+//             }, 2000);
             
-            setTimeout(() => {
-                document.querySelector('.checkBroAvien').style.bottom = '-100%';
-                document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
-            }, 60000);
+//             setTimeout(() => {
+//                 document.querySelector('.checkBroAvien').style.bottom = '-100%';
+//                 document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
+//             }, 60000);
 
-        },[])
+//         },[])
 
-        function getRandomItem(arr) {
+//         function getRandomItem(arr) {
 
-            // get random index value
-            const randomIndex = Math.floor(Math.random() * arr.length);
+//             // get random index value
+//             const randomIndex = Math.floor(Math.random() * arr.length);
         
-            // get random item
-            const item = arr[randomIndex];
+//             // get random item
+//             const item = arr[randomIndex];
         
-            return item;
-        }
+//             return item;
+//         }
         
         
-        const randomProductOneTime = getRandomItem(fetchedProducts.nodes);
+//         const randomProductOneTime = getRandomItem(fetchedProducts.nodes);
 
 
-        const [dynamicRandomProd,setDynamicRandomProd] = useState();
+//         const [dynamicRandomProd,setDynamicRandomProd] = useState();
 
-        useEffect(()=>{
+//         useEffect(()=>{
 
-const randomTime = Math.random() * ('150' - '60') ;
-
-
-const toFixedRandomTime = randomTime.toFixed(0);
-
-const mainRandomProd = getRandomItem(fetchedProducts.nodes)
+// const randomTime = Math.random() * ('150' - '60') ;
 
 
-setTimeout(() => {
-    setDynamicRandomProd(mainRandomProd);
-    document.querySelector('.checkBroAvien').style.bottom = '5%';
-}, toFixedRandomTime*1000);
+// const toFixedRandomTime = randomTime.toFixed(0);
 
-setTimeout(() => {
-    document.querySelector('.checkBroAvien').style.bottom = '-100%';
-    document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
-}, (toFixedRandomTime*1000)+3000);
+// const mainRandomProd = getRandomItem(fetchedProducts.nodes)
 
 
-        },[dynamicRandomProd])
+// setTimeout(() => {
+//     setDynamicRandomProd(mainRandomProd);
+//     document.querySelector('.checkBroAvien').style.bottom = '5%';
+// }, toFixedRandomTime*1000);
 
-// const selectRandomProd = fetchedProducts
+// setTimeout(() => {
+//     document.querySelector('.checkBroAvien').style.bottom = '-100%';
+//     document.querySelector('.checkBroAvien').style.transition = 'all 1.5s';
+// }, (toFixedRandomTime*1000)+3000);
+
+
+//         },[dynamicRandomProd])
+
 
 
     return (
         <div className=" h-[95vh] relative ">
 
-<Link to={`/product/${dynamicRandomProd?dynamicRandomProd.handle:randomProductOneTime?.handle}`}>
+{/* <Link to={`/product/${dynamicRandomProd?dynamicRandomProd.handle:randomProductOneTime?.handle}`}>
 <div className=" flex fixed bg-black text-white w-[400px] SMMax:w-[85%]  -bottom-[100%] left-8 SMMax:left-2 z-20 checkBroAvien" style={{transition:'all 0.5s'}}>
 
     <div className='w-[100%] h-[100px] h-full  bg-contain bg-center bg-no-repeat' style={{backgroundImage:`url(${dynamicRandomProd?dynamicRandomProd.featuredImage.url:randomProductOneTime.featuredImage.url})`}}></div>
@@ -153,7 +153,9 @@ setTimeout(() => {
 
 </div>
 
-</Link>
+</Link> */}
+
+<Notification fetchedProducts={fetchedProducts} />
 
 
 
