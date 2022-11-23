@@ -77,13 +77,18 @@ export default function Header({ shop,pages }) {
           </p>
         </div>
 
+{screen&&screen.width>500?
+
         <div className="flex font-semibold text-sm uppercase mt-[2px]  gap-x-4 ml-10">
 
 
 <CommonLinks/>
 
-
         </div>
+
+: null }
+
+
 
 <div className="ml-auto flex gap-x-8">
         <button

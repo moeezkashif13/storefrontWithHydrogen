@@ -3,6 +3,7 @@ import { useShopQuery, CacheLong, gql, Seo } from "@shopify/hydrogen";
 
 import Header from "./Header.client";
 
+
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
  */
@@ -20,6 +21,9 @@ export function Layout({ children }) {
     query: getPagesQuery,
     cache: CacheLong(),
   });
+
+  console.log(shop,'shop shop');
+
 
   return (
     <>

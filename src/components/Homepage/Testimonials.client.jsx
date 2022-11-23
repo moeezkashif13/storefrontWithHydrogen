@@ -19,6 +19,14 @@ return(
 
 autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:4000,
 
+
+breakpoints:{
+    500:{
+        perPage:1
+    }
+}
+
+
 }} >
 
 {TestimonialsRelated.record.allTestimonials.map(eachElem=>{
