@@ -65,22 +65,22 @@ const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea
         <div className="bg-[#fffcf9] ">
 
 
-{/* <HeroSect  collections={collections} fetchedProducts={products} /> */}
+<HeroSect  collections={collections} fetchedProducts={products} />
 
 
-{/* <NewArrivals  collections={collections}  fetchedProducts={products} /> */}
+<NewArrivals  collections={collections}  fetchedProducts={products} />
 
+<Testimonials   TestimonialsRelated={TestimonialsRelated} />
 
 <DeserveTheBest/>
 
 <SalesCountdown/>
 
+<FlashSale flashSaleProducts={CheckProducts} />
 
 
-{/* <FlashSale flashSaleProducts={CheckProducts} /> */}
 
 
-{/* <Testimonials   TestimonialsRelated={TestimonialsRelated} /> */}
 
 
 <Footer footerData={footer} pages={pages} />
