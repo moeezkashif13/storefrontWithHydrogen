@@ -1,6 +1,6 @@
 import NewArrivals from "./NewArrivals.client";
 
-import { useShopQuery, CacheLong, gql } from "@shopify/hydrogen";
+import { useShopQuery, CacheLong, gql, Seo } from "@shopify/hydrogen";
 import ExploreCategs from "./ExploreCategs.client";
 import FlashSale from "./FlashSale.client";
 import HeroSect from "./HeroSect.client";
@@ -38,18 +38,16 @@ export default function ServerReleated(){
         cache: CacheLong(),
       });
 
-      const {
-        data : {pages},
-      } = useShopQuery({
-        query: getPagesQuery,
-        cache: CacheLong(),
-      });
+      // const {
+      //   data : {pages},
+      // } = useShopQuery({
+      //   query: getPagesQuery,
+      //   cache: CacheLong(),
+      // });
 
 
 
-      
-
-
+    
 const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea50e6a79321e52a3ac',{
   headers:{
     'X-Master-Key':'$2b$10$fvXzLL8IlosiUra2TtbRverbpMRSQdYMvI3yyfzaSc9635YorVeh.',
@@ -59,11 +57,11 @@ const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea
 
 
 
-      const footer = 2222;
       
     return(
         <div className="bg-[#fffcf9] ">
 
+<Seo type="homepage"  />
 
 <HeroSect  collections={collections} fetchedProducts={products} />
 
@@ -83,7 +81,7 @@ const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea
 
 
 
-<Footer footerData={footer} pages={pages} />
+{/* <Footer  pages={pages} /> */}
 
 
         </div>
@@ -118,17 +116,17 @@ query GetCollections{
 
 const GetAllProductsForNewArrivals = gql`
 
-query GetAllProducts{
-    products(first:20){
-      nodes{
-        title,
-        handle,
-        featuredImage{
-          url
+  query GetAllProducts{
+      products(first:20){
+        nodes{
+          title,
+          handle,
+          featuredImage{
+            url
+          }
         }
       }
     }
-  }
 
 `;
 

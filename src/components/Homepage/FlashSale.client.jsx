@@ -44,7 +44,7 @@ const getOnSaleVariants = flashSaleProducts.nodes.map(eachProduct=>{
 
     return(
 
-<div className='pb-10 pt-10'>
+<div className='pb-10 SMMax:pb-0 pt-10'>
 
 <div className='px-10 text-5xl mb-6'>Flash Sale!</div>
 

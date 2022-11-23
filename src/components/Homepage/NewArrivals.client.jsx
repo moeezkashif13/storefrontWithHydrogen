@@ -1,5 +1,6 @@
 import {AiOutlineSearch,AiOutlineHeart,AiFillHeart} from 'react-icons/ai'
-import { fetchedCategories } from './tempData';
+
+
 import {useEffect,useState} from 'react'
 
 import {Link} from '@shopify/hydrogen'
@@ -94,6 +95,7 @@ const newArrivalEachProduct = (event)=>{
 
 export default function NewArrivals({collections,fetchedProducts}){
 
+    console.log(fetchedProducts);
     
     const [check,setCheck] = useState(false);
 
@@ -287,7 +289,7 @@ export default function NewArrivals({collections,fetchedProducts}){
 
 
 <div className='  SMMax:flex SMMax:justify-center SMMax:mb-6'>
-<a href='/category/men' ><div className='mx-auto cursor-pointer font-semibold text-white bg-black rounded-3xl mt-8 inline-block px-7 py-3.5'> See All Products </div></a>
+<a href='/collections/all' ><div className='mx-auto cursor-pointer font-semibold text-white bg-black rounded-3xl mt-8 inline-block px-7 py-3.5'> See All Products </div></a>
 </div>
 
 

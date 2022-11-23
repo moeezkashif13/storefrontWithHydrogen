@@ -8,7 +8,7 @@ console.log(TestimonialsRelated);
 
 return(
 
-    <div className="py-6">
+    <div className="py-6 SMMax:-mt-16">
 
 
 <h1 className="text-center font-semibold text-4xl mb-10">Here's what our customers think</h1>

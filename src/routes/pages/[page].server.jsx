@@ -46,7 +46,6 @@ export default function Page(){
         </div>
 
 
-<Footer pages={pages} /> 
 
 
 </Suspense>

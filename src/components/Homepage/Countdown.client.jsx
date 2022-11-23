@@ -65,7 +65,7 @@ var x = setInterval(function() {
 
     return(
 
-        <div className="flex flex-col items-center gap-y-2 SMMax:text-center SMMax:px-4 ">
+        <div className="flex flex-col items-center gap-y-2 SMMax:text-center SMMax:px-4 pt-24 pb-8 SMMax:pt-10 SMMax:pb-4">
 
 
 <h1 className="font-semibold SMMax:text-2xl">SUPER SALE COUNTDOWN</h1>
@@ -78,7 +78,7 @@ var x = setInterval(function() {
 
 
 
-<Link to="/collections/all" className=" w-1/2  SMMax:w-full mx-auto text-center  pt-3 pb-2 uppercase text-white bg-red-500 text-xl ">yes, i want to get this offer now!</Link>
+<Link to="/collections/all" className=" w-1/2  SMMax:w-full SMMax:text-sm mx-auto text-center  pt-3 pb-2 uppercase text-white bg-red-500 text-xl ">yes, i want to get this offer now!</Link>
 
 
 

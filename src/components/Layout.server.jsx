@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import { useShopQuery, CacheLong, gql, Seo } from "@shopify/hydrogen";
+import { useShopQuery, CacheLong, gql, Seo, fetchSync } from "@shopify/hydrogen";
 
 import Header from "./Header.client";
+import Footer from "./Footer.client";
 
 
 /**
@@ -22,7 +23,15 @@ export function Layout({ children }) {
     cache: CacheLong(),
   });
 
-  console.log(shop,'shop shop');
+  const FooterRelated = fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
+  headers:{
+    'X-Shopify-Access-Token' : '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',
+
+  }
+}).json()
+
+console.log(FooterRelated);
+
 
 
   return (
@@ -47,6 +56,12 @@ export function Layout({ children }) {
         <main role="main" id="mainContent" className="flex-grow">
           <Suspense fallback={null}>{children}</Suspense>
         </main>
+
+
+<Footer footerRelated={FooterRelated} pages={pages} />
+
+
+
       </div>
     </>
   );
