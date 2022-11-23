@@ -1,9 +1,10 @@
 import { Splide,SplideSlide } from "@splidejs/react-splide";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Testimonials({TestimonialsRelated}){
 
-    console.log(TestimonialsRelated);
-
+console.log(TestimonialsRelated);
 
 return(
 
@@ -16,29 +17,28 @@ return(
 
 <Splide options={{perPage:3,pagination:false,gap:'3rem',arrows:false,type:'loop',
 
-autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:2000,
+autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:4000,
 
 
 
 }} >
 
-{TestimonialsRelated.data[0].attributes.EachTestimonial.map(eachElem=>{
+{TestimonialsRelated.record.allTestimonials.map(eachElem=>{
     
     console.log(eachElem);
-    
-    const {UserImage} = eachElem;
 
+    
     
     
     return <SplideSlide>
         
         <div className=" flex flex-col items-center gap-y-2">
 
-<div className="w-20 h-20  rounded-full bg-cover bg-center bg-no-repeat" style={{backgroundImage:`url(http://localhost:1337${UserImage.data.attributes.formats.small.url})`}}></div>
+<div className="w-20 h-20  rounded-full bg-cover bg-center bg-no-repeat" style={{backgroundImage:`url(${eachElem.avatar})`}}></div>
 
-<p className="text-lg font-medium text-center">{eachElem.Review}</p>
+<p className="text-lg font-medium text-center">{eachElem.message}</p>
 
-<cite className="font-medium">- {eachElem.Name}</cite>
+<cite className="font-medium">- {eachElem.name}</cite>
 
 
 

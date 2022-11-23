@@ -19,7 +19,8 @@ useEffect(()=>{
       
     }
   }).then(resp=>{
-    console.log(resp);
+
+    
     setFooterReleated(resp.data.shop)
   }).catch(err=>{
     console.log(err);
@@ -154,7 +155,8 @@ useEffect(()=>{
  
 
 <div className='flex text-sm justify-center text-gray-500 font-semibold ' >
-{console.log(footerReleated)}
+
+
 &#169; 2022 {footerReleated.domain?.split(".")[0]}. All rights reserved
 
 </div>

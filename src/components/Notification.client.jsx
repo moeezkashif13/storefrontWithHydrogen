@@ -4,8 +4,8 @@ import {useEffect,useState} from 'react'
 
 export default function Notification({fetchedProducts}){
 
-    console.log(fetchedProducts);
 
+    
     useEffect(()=>{
 
         setTimeout(() => {

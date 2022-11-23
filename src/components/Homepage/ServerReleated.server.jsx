@@ -5,9 +5,12 @@ import ExploreCategs from "./ExploreCategs.client";
 import FlashSale from "./FlashSale.client";
 import HeroSect from "./HeroSect.client";
 import Footer from "../Footer.client";
-import { useState } from "react";
+
 import { fetchSync } from "@shopify/hydrogen";
 import Testimonials from "./Testimonials.client";
+import axios from "axios";
+
+
 
 export default function ServerReleated(){
 
@@ -40,7 +43,17 @@ export default function ServerReleated(){
         cache: CacheLong(),
       });
 
-// const TestimonialsRelated =       fetchSync('http://localhost:1337/api/testimonials?populate[0]=EachTestimonial&populate[1]=EachTestimonial.UserImage',).json();
+
+
+      
+
+
+const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea50e6a79321e52a3ac',{
+  headers:{
+    'X-Master-Key':'$2b$10$fvXzLL8IlosiUra2TtbRverbpMRSQdYMvI3yyfzaSc9635YorVeh.',
+    'X-Access-Key':'$2b$10$SnIAp1yBi2CpAfJoExp7peTdo17svGa/Pc76OZsjc75gDYJKkJm3y'
+  }
+}).json();
 
 
 
@@ -48,9 +61,6 @@ export default function ServerReleated(){
       
     return(
         <div className="bg-[#fffcf9] ">
-
-
-
 
 
 <HeroSect  collections={collections} fetchedProducts={products} />
@@ -64,7 +74,7 @@ export default function ServerReleated(){
 <FlashSale flashSaleProducts={CheckProducts} />
 
 
-{/* <Testimonials  TestimonialsRelated={TestimonialsRelated} /> */}
+<Testimonials   TestimonialsRelated={TestimonialsRelated} />
 
 
 <Footer footerData={footer} pages={pages} />
