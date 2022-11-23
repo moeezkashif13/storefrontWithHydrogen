@@ -19,8 +19,6 @@ return(
 
 autoplay:true,pauseOnHover : false,pauseOnFocus:false,interval:4000,
 
-
-
 }} >
 
 {TestimonialsRelated.record.allTestimonials.map(eachElem=>{

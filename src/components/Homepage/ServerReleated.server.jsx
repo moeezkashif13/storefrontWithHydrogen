@@ -9,6 +9,8 @@ import Footer from "../Footer.client";
 import { fetchSync } from "@shopify/hydrogen";
 import Testimonials from "./Testimonials.client";
 import axios from "axios";
+import DeserveTheBest from "./DeserveTheBest.client";
+import SalesCountdown from "./Countdown.client";
 
 
 
@@ -63,18 +65,22 @@ const TestimonialsRelated =       fetchSync('https://api.jsonbin.io/v3/b/637dfea
         <div className="bg-[#fffcf9] ">
 
 
-<HeroSect  collections={collections} fetchedProducts={products} />
+{/* <HeroSect  collections={collections} fetchedProducts={products} /> */}
 
 
-<NewArrivals  collections={collections}  fetchedProducts={products} />
+{/* <NewArrivals  collections={collections}  fetchedProducts={products} /> */}
 
 
-{/* <ExploreCategs collections={collections} /> */}
+<DeserveTheBest/>
 
-<FlashSale flashSaleProducts={CheckProducts} />
+<SalesCountdown/>
 
 
-<Testimonials   TestimonialsRelated={TestimonialsRelated} />
+
+{/* <FlashSale flashSaleProducts={CheckProducts} /> */}
+
+
+{/* <Testimonials   TestimonialsRelated={TestimonialsRelated} /> */}
 
 
 <Footer footerData={footer} pages={pages} />
@@ -113,7 +119,7 @@ query GetCollections{
 const GetAllProductsForNewArrivals = gql`
 
 query GetAllProducts{
-    products(first:10){
+    products(first:20){
       nodes{
         title,
         handle,

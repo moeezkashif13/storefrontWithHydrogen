@@ -15,7 +15,7 @@ export default function AllCollections (){
     cache: CacheLong(),
   });
 
-console.log(products);
+  
 
     return(
 
@@ -57,7 +57,9 @@ return <Link to={`/product/${eachProduct.handle}`}> <div className="w-[280px] fl
 
 
   </div>
-  
+
+
+
   
         </Suspense>
       </Layout>

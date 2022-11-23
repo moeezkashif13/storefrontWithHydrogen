@@ -20,7 +20,8 @@ useEffect(()=>{
     }
   }).then(resp=>{
 
-    
+    console.log(resp);
+
     setFooterReleated(resp.data.shop)
   }).catch(err=>{
     console.log(err);
