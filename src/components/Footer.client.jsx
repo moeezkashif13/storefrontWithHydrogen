@@ -81,7 +81,7 @@ console.log(footerRelated);
 
 <div className='flex flex-col gap-y-5 SMMax:gap-y-4'>
 <p>About Us</p>
-<p>Contact Us</p>
+{/* <p>Contact Us</p> */}
 <p>Features</p>
 <p>Blog</p>
 </div>

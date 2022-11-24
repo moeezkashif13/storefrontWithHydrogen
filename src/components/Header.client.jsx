@@ -27,19 +27,17 @@ const CommonLinks = ({screenType})=>{
 </Link>
 
 
-<Link to="/pages/contact-us">
-
+{/* <Link to="/pages/contact">
 
 <p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >Contact Us</p>
 
+</Link> */}
 
-</Link>
-
-<div>
+{/* <div>
 
 <p className={` ${screenType==='mobile'&& 'border-2 px-5 py-4 border-x-0' } `} >Order Status</p>
 
-</div>
+</div> */}
 
 
 </>
