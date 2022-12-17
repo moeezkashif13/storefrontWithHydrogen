@@ -25,7 +25,7 @@ export function Layout({ children }) {
 
   const FooterRelated = fetchSync('https://sahhmallllc.myshopify.com/admin/api/2022-10/shop.json',{
   headers:{
-    'X-Shopify-Access-Token' : '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',
+    'X-Shopify-Access-Token' : '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',
 
   }
 }).json()
