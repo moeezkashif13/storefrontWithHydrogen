@@ -110,19 +110,19 @@ console.log(footerRelated);
 <div className='flex flex-col gap-y-5'>
 <p className='flex gap-x-3 items-center'>
 <span className='pt-1'><BiMessageAlt/></span>
-  <span>{footerRelated.shop.customer_email}</span>
+  <span>{footerRelated?.shop?.customer_email}</span>
 </p>
 
 <p className='flex gap-x-3 items-center'>
   <span><BsFillTelephoneFill/></span>
-<span>+1({footerRelated.shop.phone?.substring(0,3)}){footerRelated.shop.phone?.substring(3,6)}-{footerRelated.shop.phone?.substring(6,10)} </span>
+<span>+1({footerRelated?.shop?.phone?.substring(0,3)}){footerRelated?.shop?.phone?.substring(3,6)}-{footerRelated?.shop?.phone?.substring(6,10)} </span>
 
 </p>
 
 
 <p>
 
-{footerRelated.shop.address1} {footerRelated.shop.address2} {footerRelated.shop.city} {footerRelated.shop.province} {footerRelated.shop.zip} 
+{footerRelated?.shop?.address1} {footerRelated?.shop?.address2} {footerRelated?.shop?.city} {footerRelated?.shop?.province} {footerRelated?.shop?.zip} 
 
 </p>
 
@@ -193,7 +193,7 @@ console.log(footerRelated);
 <div className='flex text-sm justify-center text-gray-500 font-semibold ' >
 
 
-&#169; 2022 {footerRelated.shop.domain?.split(".")[0]}. All rights reserved
+&#169; 2022 {footerRelated?.shop?.domain?.split(".")[0]}. All rights reserved
 
 </div>
 
