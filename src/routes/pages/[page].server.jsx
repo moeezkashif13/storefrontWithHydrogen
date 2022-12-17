@@ -28,8 +28,7 @@ export default function Page(){
         },
       });
 
-      console.log(pages,'pages pages');
-
+      
       
     return(
 

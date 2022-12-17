@@ -49,19 +49,19 @@ let selected = shuffled.slice(0, 5);
 
        
         setDifferenceValue(oldVal=>{
-            console.log(oldVal);
 
+            
 if(oldVal<getDifferenceInTwoElements){
-console.log('iffff');
 
+    
 activeElement.style.transform = `translateX(${getDifferenceInTwoElements}px)`
 
 clickedElement.style.transform = `translateX(${-getDifferenceInTwoElements}px)`
 
 }else{
 
-    console.log('elseeee');
 
+    
     activeElement.style.transform = `translateX(${getDifferenceInTwoElements}px)`
     
     clickedElement.style.transform = `translateX(${getDifferenceInTwoElements}px)`

@@ -31,8 +31,8 @@ const applyReactToast = (message)=>{
 
 const SelectSize = (event,setSelectedSize)=>{
 
-console.log('selectedddd');
 
+  
 
 
     const selectedSizeDiv =  event.target
@@ -95,9 +95,8 @@ const handleAddToCart = ()=>{
 
 function PurchaseMarkup() {
     const { selectedVariant } = useProductOptions();
-    console.log(selectedVariant,'frommmm  puchaseee markkupppp');
 
-
+    
     const isOutOfStock = !selectedVariant?.availableForSale || false;
   
     return (

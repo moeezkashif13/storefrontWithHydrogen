@@ -3,8 +3,8 @@ import {Link} from '@shopify/hydrogen'
 
 export default function ExploreCategs({collections}){
     
-    console.log(collections);
 
+    
     return(
         <div className='px-10 '>
 

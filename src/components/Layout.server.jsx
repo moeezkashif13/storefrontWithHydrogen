@@ -30,7 +30,7 @@ export function Layout({ children }) {
   }
 }).json()
 
-console.log(FooterRelated);
+
 
 
 

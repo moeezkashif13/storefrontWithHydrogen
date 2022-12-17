@@ -9,9 +9,6 @@ import axios from 'axios'
 
 export default function Footer({pages,footerRelated}){
 
-console.log(footerRelated);
-
-
 
 // useEffect(()=>{
 

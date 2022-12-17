@@ -95,7 +95,7 @@ const newArrivalEachProduct = (event)=>{
 
 export default function NewArrivals({collections,fetchedProducts}){
 
-    console.log(fetchedProducts);
+    
     
     const [check,setCheck] = useState(false);
 
@@ -115,10 +115,7 @@ export default function NewArrivals({collections,fetchedProducts}){
         // const filterProducts = fetchedProducts.map(eachProduct=>{
         //     const {Categories} = eachProduct.attributes;
         //         Categories.data.filter(eachCheck=>{
-        //             // console.log(eachCheck);
         //             if(eachCheck.attributes.Slug==slug){
-        //                 console.log(true);
-        //                 console.log(eachProduct);
         //                 filteredProductsArray.push(eachProduct)
         //             }
         //         })

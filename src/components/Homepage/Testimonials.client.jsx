@@ -4,8 +4,8 @@ import { useEffect } from "react";
 
 export default function Testimonials({TestimonialsRelated}){
 
-console.log(TestimonialsRelated);
 
+    
 return(
 
     <div className="py-6 SMMax:-mt-16">
@@ -31,8 +31,6 @@ breakpoints:{
 
 {TestimonialsRelated.record.allTestimonials.map(eachElem=>{
     
-    console.log(eachElem);
-
     
     
     
